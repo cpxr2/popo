@@ -1,0 +1,76 @@
+body
+{
+    background-color: #9ACBFF;
+}
+#page
+{
+    margin: auto;
+    width: 900px;
+    height: 900px;
+    background-color: #8DFFFD;
+}
+header
+{
+    padding: 20px;
+    background-color: #8198E8;
+}
+#corp_page
+{
+    text-align: center;
+}
+label
+{
+    display: block;
+    width: 200px;
+    float: left;
+}
+.bouton
+{
+    text-align: center;
+}
+.formulaire
+{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+h1
+{
+    text-align: center;
+    font-size: 2.5em;
+}
+.erreur
+{
+    text-align: center;
+}
+erreur p
+{
+    font-size: 30px;
+}
+nav
+{
+    background-color: #928DFF;
+    font-size: 1.5em;
+}
+li
+{
+    display: inline;
+    list-style-type: none;
+    margin-left: 20px;
+}
+.tableau
+{
+    margin-left: 20px;
+}
+.ajout
+{
+    margin: 50px;
+}
+.ajout p
+{
+    font-size: 25px;
+}
+.alerte
+{
+    text-align: center;
+    font-size: 30px;
+}
