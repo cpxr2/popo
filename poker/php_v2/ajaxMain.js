@@ -1,23 +1,19 @@
 $("#donne1").click( function(){
 
-    $.ajax({
-            type: "POST",
-            url: "donne1.php",
-            data: "",
-            contentType: "application/json; charset=UTF-8",
-            dataType: "json",
-            success: function (msg) {
-                if (msg.error === 'success') {
-                    alert('SUCCESS')
-                } 
-                else {
-                    alert('ERROR' + msg.error)
-                }
+    $.post(
+    'donne1.php',
+        
+        function(data){
+            if(typeof data !== undefined){
+            var mesCartes = JSON.parse(data);
+            console.log("ça marche");
             }
-
-        }).done(function(msg) {
-            alert( "Data Saved: " + msg );
-        });
+            else{
+                console.log("c'est la merde");
+            }
+        },
+        'json'
+    );
     
     $("#donne1").hide(); // j'enleve le bouton distribuer
     $("#donne2").show(); // je met le 2eme bouton
