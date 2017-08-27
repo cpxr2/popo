@@ -1,3 +1,7 @@
 canva.com
 
+<<<<<<< HEAD
 modification pour test github
+=======
+test de changement dans un fichier pour git
+>>>>>>> 3692a59829c615c1d0ff6a745e83a708696e2e77

@@ -1,4 +1,7 @@
 <?php
+
+
+
     for($i=0; $i<5; $i++)// on tire les 5 cartes.
     {
         do
@@ -34,3 +37,4 @@
 "c3": "<?=$main[3]?>",
 "c4": "<?=$main[4]?>"
 }
+
