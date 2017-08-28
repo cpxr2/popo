@@ -33,31 +33,31 @@
                         <!--carte 1-->
 
                         <div class="col-xs-offset-1 col-xs-2 carte">
-                            <img src="images/(53).png" alt="carte1" id="c1" />
+                            <img src="images/(53).png" alt="carte1" id="c0" />
                         </div>                           
 
                         <!-- carte 2-->
 
                         <div class="col-xs-2 carte">
-                            <img src="images/(53).png" alt="carte2" id="c2" />
+                            <img src="images/(53).png" alt="carte2" id="c1" />
                         </div>                           
 
                         <!-- carte 3-->
 
                         <div class="col-xs-2 carte">
-                            <img src="images/(53).png" alt="carte3" id="c3" />
+                            <img src="images/(53).png" alt="carte3" id="c2" />
                         </div>
 
                         <!-- carte 4-->
 
                         <div class="col-xs-2 carte">
-                            <img src="images/(53).png" alt="carte4" id="c4" />                                   
+                            <img src="images/(53).png" alt="carte4" id="c3" />                                   
                         </div>                       
 
                         <!-- carte 5-->
 
                         <div class="col-xs-2 carte">
-                            <img src="images/(53).png" alt="carte5" id="c5" />
+                            <img src="images/(53).png" alt="carte5" id="c4" />
                         </div>
 
 
@@ -118,7 +118,8 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="fonction_poker.js"></script>
-        <script src="ajaxMain.js"></script>
+        <script src="1erTirageAjax.js"></script>
+        <script src="2emeTirageAjax.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
     </body>
 </html>

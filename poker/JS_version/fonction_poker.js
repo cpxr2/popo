@@ -67,7 +67,7 @@ selectCard("#bou3", "#c3", 2, 2, 2);
 selectCard("#bou4", "#c4", 3, 3, 3);
 selectCard("#bou5", "#c5", 4, 4, 4);
 
-/*$("#donne2").click(function(){
+$("#donne2").click(function(){
     for (i=0; i<5; i++)
     {
         if(retire[i] === true){
@@ -116,7 +116,7 @@ selectCard("#bou5", "#c5", 4, 4, 4);
 $(".bouton").hide();
 $("#donne2").hide();
 $("#retour").show();    
-});*/
+});
 
 $("#retour").click(function(){
    for(i=1; i<6; i++){
