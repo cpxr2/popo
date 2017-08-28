@@ -1,24 +1,39 @@
 var nouvelleCarte = 0;
 
 $("#donne2").click( function(){
-    
-for(i=0; i<5; i++){
-    if(retire[i] == true){
-        nouvelleCarte++;
+
+    //console.log(carteTirer);
+
+    for(i=0; i<5; i++){
+        if(retire[i] == true){
+            nouvelleCarte++;
+        }
     }
-}
-    
+
+
     $.post(
-    '2emeTirageAjax.php',
-        {new : nouvelleCarte}//j'envoi le nombre de nouvelle carte a tirer
-        
+        '2emeTirageAjax.php',
+        {
+            "new" : nouvelleCarte, //j'envoi le nombre de nouvelle carte a tirer
+            "carteTirer" : JSON.stringify(carteTirer) // j'envoi le tableau des cartes déjà tirées
+        },
+
         function(data){
-            
+
+            var nouvelleCarteTirer = 0;
+
+            for(i=0; i<5; i++){
+                if(retire[i] == true){
+                    $("#c" + i).attr("src", "images/(" + data[nouvelleCarteTirer] + ").png");
+                    nouvelleCarteTirer++;
+                }
+            }
+
         },
         'json'
     );
-    console.log(carteTirer);
-    $("#retour").show(); // j'enleve le bouton distribuer
-    $("#donne2").hide(); // je met le 2eme bouton
-    $(".bouton").hide(); // je met les boutons pour garder les cartes
+
+    $("#retour").show(); // je met le dernier bouton
+    $("#donne2").hide(); // j'enlève le bouton "donne"
+    $(".bouton").hide(); // j'enlève les boutons sous les cartes
 });
