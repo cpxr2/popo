@@ -1,10 +1,11 @@
 <?php
+require 'connexion.php';
 
 // Variable setter pour le teste
-/*
+
 $_POST["new"] = 3;
 $_POST["carteTirer"] = [0=>2, 1=>44];
-$_POST["mainFinal"] = [0=>23, 1=>42];*/
+$_POST["mainFinal"] = [0=>23, 1=>42];
 
 
 
@@ -12,10 +13,10 @@ $_POST["mainFinal"] = [0=>23, 1=>42];*/
 if(isset($_POST['new'])){
 
     $nbCartes = $_POST['new']; //le nombre de nouvelles cartes à tirer
-    $carteTirer = json_decode($_POST['carteTirer']); //tableau des cartes déjà tirées
-    $mainFinal = json_decode($_POST['mainFinal']);
-    //$mainFinal = $_POST['mainFinal'];
-    //$carteTirer = $_POST['carteTirer']; //tableau des cartes déjà tirées
+    //$carteTirer = json_decode($_POST['carteTirer']); //tableau des cartes déjà tirées
+    //$mainFinal = json_decode($_POST['mainFinal']);
+    $mainFinal = $_POST['mainFinal'];
+    $carteTirer = $_POST['carteTirer']; //tableau des cartes déjà tirées
     $newDonne=[]; // tableau des cartes à renvoyer en ajax
 
     
@@ -54,6 +55,22 @@ if(isset($_POST['new'])){
     /******************************************
      *   RECHERCHE CARTES DANS BDD            *
      ******************************************/
+    
+    $requete = $bdd->prepare('SELECT * FROM valeur_carte WHERE id=:id0 OR id=:id1 OR id=:id2 OR id=:id3 OR id=:id4');
+    $requete->execute([
+        ':id0'=>$mainFinal[0],
+        ':id1'=>$mainFinal[1],
+        ':id2'=>$mainFinal[2],
+        ':id3'=>$mainFinal[3],
+        ':id4'=>$mainFinal[4],
+    ]);
+    
+    $resultat = $requete->fetchAll();
+    
+    $testObjet = $resultat[0];
+    
+    echo $testObjet->getCouleur_val;
+    
 
     $retour = json_encode($newDonne);
     //$retour = json_encode($carteTirer);
