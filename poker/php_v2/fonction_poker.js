@@ -32,7 +32,7 @@ selectCard("#bou5", "#c4", 4, 4, 4);
 $("#retour").click(function(){
    for(i=0; i<5; i++){
        $("#c" + i).attr("src", "images/(53).png");
-       $("#bou" + i+1).attr("class","btn btn-primary");
+       $("#bou" + (i+1)).attr("class","btn btn-primary");
    } 
     $("#retour").hide();
     $("#donne1").show();

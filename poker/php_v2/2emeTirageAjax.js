@@ -1,4 +1,5 @@
 var nouvelleCarte = 0;
+var mainFinal = [];
 
 $("#donne2").click( function(){
 
@@ -7,6 +8,8 @@ $("#donne2").click( function(){
     for(i=0; i<5; i++){
         if(retire[i] == true){
             nouvelleCarte++;
+        }else{
+            mainFinal[mainFinal.length] = main[i]; //****************************
         }
     }
 
@@ -15,7 +18,8 @@ $("#donne2").click( function(){
         '2emeTirageAjax.php',
         {
             "new" : nouvelleCarte, //j'envoi le nombre de nouvelle carte a tirer
-            "carteTirer" : JSON.stringify(carteTirer) // j'envoi le tableau des cartes déjà tirées
+            "carteTirer" : JSON.stringify(carteTirer), // j'envoi le tableau des cartes déjà tirées
+            "mainFinal" : JSON.stringify(mainFinal) // j'envoi les cartes qui reste en mains
         },
 
         function(data){
@@ -28,7 +32,7 @@ $("#donne2").click( function(){
                     nouvelleCarteTirer++;
                 }
             }
-
+                
         },
         'json'
     );
