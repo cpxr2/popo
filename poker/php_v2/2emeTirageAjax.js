@@ -32,7 +32,7 @@ $("#donne2").click( function(){
                     nouvelleCarteTirer++;
                 }
             }
-                
+               
         },
         'json'
     );

@@ -12,6 +12,7 @@ $("#donne1").click( function(){
                 main[i] = data[i];
                 carteTirer[i] = data[i];
             }
+                console.log(carteTirer);
                         
         },
         'json'
@@ -20,4 +21,5 @@ $("#donne1").click( function(){
     $("#donne1").hide(); // j'enleve le bouton distribuer
     $("#donne2").show(); // je met le 2eme bouton
     $(".bouton").show(); // je met les boutons pour garder les cartes
+    
 });

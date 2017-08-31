@@ -1,5 +1,6 @@
 <?php
 require 'connexion.php';
+require 'fonction.php';
 
 // Variable setter pour le teste
 
@@ -19,12 +20,12 @@ if(isset($_POST['new'])){
     $carteTirer = $_POST['carteTirer']; //tableau des cartes déjà tirées
     $newDonne=[]; // tableau des cartes à renvoyer en ajax
 
-    
+
     /******************************************
      *       TIRAGE DES CARTES                *
      ******************************************/
-        
-    
+
+
     for($i=0; $i<$nbCartes; $i++)// on tire le nombre de carte qui sont en TRUE.
     {
         do
@@ -34,14 +35,14 @@ if(isset($_POST['new'])){
             $carte = $nb;
 
             //On vérifie si elle est pas deja dans la main.
-            $dejaTirer = false;
+            $dejaTirer = true;
 
-            for($j=0; $j<$i; $j++)
+            for($j=0; $j<5; $j++)
             {
 
-                if(array_search($carte, $carteTirer))//Si elle est deja tirer on passe en TRUE et on retire
+                if(!array_search($carte, $carteTirer))//Si elle est deja tirer on passe en TRUE et on retire
                 {
-                    $dejaTirer = true;                    
+                    $dejaTirer = false;                    
                 }
             }
         }while($dejaTirer == true);
@@ -51,12 +52,12 @@ if(isset($_POST['new'])){
         $newDonne[$i] = $carte;
         $mainFinal[count($mainFinal)] = $carte;
     }
-    
+
     /******************************************
      *   RECHERCHE CARTES DANS BDD            *
      ******************************************/
-    
-    $requete = $bdd->prepare('SELECT * FROM valeur_carte WHERE id=:id0 OR id=:id1 OR id=:id2 OR id=:id3 OR id=:id4');
+
+    $requete = $bdd->prepare('SELECT * FROM valeur_carte WHERE id_val=:id0 OR id_val=:id1 OR id_val=:id2 OR id_val=:id3 OR id_val=:id4');
     $requete->execute([
         ':id0'=>$mainFinal[0],
         ':id1'=>$mainFinal[1],
@@ -64,25 +65,36 @@ if(isset($_POST['new'])){
         ':id3'=>$mainFinal[3],
         ':id4'=>$mainFinal[4],
     ]);
-    
+
     $resultat = $requete->fetchAll();
+  
+        
+    /******************************************
+     *   PLACE DES FONCTIONS DE VERIF          *
+     ******************************************/
     
+    verfiMain($resultat);
+
+    /*echo 'retour de la requete : ';
+    print_r($resultat);
     $testObjet = $resultat[0];
-    
-    echo $testObjet->getCouleur_val;
-    
+    echo $testObjet['couleur_val'];*/
+
 
     $retour = json_encode($newDonne);
     //$retour = json_encode($carteTirer);
-    
+
     echo $retour;
     //echo json_encode($carteTirer);
-    
-   /* echo '<br />';
+
+    /*echo '<br />';
+    echo 'nouvelle carte distribuer : ';
     print_r($newDonne);
     echo '<br />';
-     print_r($mainFinal);
+    echo 'Main final : ';
+    print_r($mainFinal);
     echo '<br />';
-    echo count($carteTirer);*/
-
+    echo 'toute les cartes tirées : ';
+    echo count($carteTirer);
+    echo '<br />';*/
 }
