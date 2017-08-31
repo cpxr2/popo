@@ -1,6 +1,6 @@
 <?php
 require 'connexion.php';
-require 'fonction.php';
+//require 'fonction.php';
 
 // Variable setter pour le teste
 
@@ -67,13 +67,13 @@ if(isset($_POST['new'])){
     ]);
 
     $resultat = $requete->fetchAll();
-  
+  print_r($resultat);
         
     /******************************************
      *   PLACE DES FONCTIONS DE VERIF          *
      ******************************************/
     
-    verfiMain($resultat);
+   // verfiMain($resultat);
 
     /*echo 'retour de la requete : ';
     print_r($resultat);
