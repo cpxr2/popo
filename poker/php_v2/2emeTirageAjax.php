@@ -1,6 +1,6 @@
 <?php
 require 'connexion.php';
-//require 'fonction.php';
+require 'fonction.php';
 
 // Variable setter pour le teste
 
@@ -12,13 +12,19 @@ $_POST["mainFinal"] = [0=>23, 1=>42];
 
 
 if(isset($_POST['new'])){
+    
+    //vrai variable
 
+    $newDonne=[]; // tableau des cartes à renvoyer en ajax
     $nbCartes = $_POST['new']; //le nombre de nouvelles cartes à tirer
     //$carteTirer = json_decode($_POST['carteTirer']); //tableau des cartes déjà tirées
     //$mainFinal = json_decode($_POST['mainFinal']);
+    
+    
+    //variable de teste
+    
     $mainFinal = $_POST['mainFinal'];
     $carteTirer = $_POST['carteTirer']; //tableau des cartes déjà tirées
-    $newDonne=[]; // tableau des cartes à renvoyer en ajax
 
 
     /******************************************
@@ -73,7 +79,7 @@ if(isset($_POST['new'])){
      *   PLACE DES FONCTIONS DE VERIF          *
      ******************************************/
     
-   // verfiMain($resultat);
+   verfiMain($resultat);
 
     /*echo 'retour de la requete : ';
     print_r($resultat);
