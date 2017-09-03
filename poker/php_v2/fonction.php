@@ -1,4 +1,9 @@
 <?php
+
+    /******************************************
+     *          QUINTE FLUSH                  *
+     ******************************************/
+
 function compareQuinte($valeur, $type="") //le paramètre $type permet vérifié la couleur ou la valeur
 {
     $gagner = [true,true,true,true,true];
@@ -6,7 +11,7 @@ function compareQuinte($valeur, $type="") //le paramètre $type permet vérifié
 
     for($i=0; $i<4; $i++) //on verifie les 5 cartes avec la boucle
     {
-       // $verif[$i] = false; // on remplie le tableau $verif avec "false" a chaque passage
+        // $verif[$i] = false; // on remplie le tableau $verif avec "false" a chaque passage
 
         if($type == 'valeur'){ // si je met "valeur" en paramétre, je vérifie la valeur
 
@@ -25,7 +30,7 @@ function compareQuinte($valeur, $type="") //le paramètre $type permet vérifié
     }
 
     $verif[4] = true;// le dernier indice du tableau n'est pas verifié, alors on le set a true pour compléter le tableau
-    
+
     if($gagner == $verif) //on compare les 2 tableaux et si ils sont égaux on retourne true
     {
         return true;
@@ -37,11 +42,15 @@ function compareQuinte($valeur, $type="") //le paramètre $type permet vérifié
     }
 }
 
+    /******************************************
+     *          CARRE                         *
+     ******************************************/
+
 function compareCarre($valeur)
 {
-     $gagner = [false,true,true,true,true];
+    $gagner = [false,true,true,true,true];
     $verif = [false,false,false,false,false];
-    
+
     for($i=0; $i<4; $i++)
     {
         if($valeur[$i] == $valeur[$i+1])//je compare si la carte a la même valeur que la carte suivante
@@ -54,17 +63,26 @@ function compareCarre($valeur)
         $verif[4] = true;
     }
     sort($verif);// je tri le tableau pour qu'il corresponde au tableau $gagne
-    
+
     if($verif == $gagner)
     {
         return true;
     }
     else
     {
-        return 'perdu';
+        return false;
     }
 }
 
+    /******************************************
+     *       FULL HOUSE                       *
+     ******************************************/
+
+function compareFull($valeur)
+{
+   $verif = [false,false,false,false,false];
+    
+}
 
 function verifMain($args){
     $couleur = [];

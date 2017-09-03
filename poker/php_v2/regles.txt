@@ -14,8 +14,8 @@ nb == nb == nb == nb
 
 4 - full
 
-couleur1 == couleur1 &&
-couleur2 == couleur2 == couleur2
+nb1 == nb1 &&
+nb2 == nb2 == nb2
 
 5 - couleur
 
