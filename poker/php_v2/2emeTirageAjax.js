@@ -25,7 +25,7 @@ $("#donne2").click( function(){
         function(data){
 
             var nouvelleCarteTirer = 0;
-
+            console.log(data);
             for(i=0; i<5; i++){
                 if(retire[i] == true){
                     $("#c" + i).attr("src", "images/(" + data[nouvelleCarteTirer] + ").png");

@@ -1,12 +1,12 @@
 <?php
-function compare5Cartes($valeur, $type="") //le paramètre $type permet vérifié la couleur ou la valeur
+function compareQuinte($valeur, $type="") //le paramètre $type permet vérifié la couleur ou la valeur
 {
     $gagner = [true,true,true,true,true];
-    $verif = [];
+    $verif = [false,false,false,false,false];
 
     for($i=0; $i<4; $i++) //on verifie les 5 cartes avec la boucle
     {
-        $verif[$i] = false; // on remplie le tableau $verif avec "false" a chaque passage
+       // $verif[$i] = false; // on remplie le tableau $verif avec "false" a chaque passage
 
         if($type == 'valeur'){ // si je met "valeur" en paramétre, je vérifie la valeur
 
@@ -37,8 +37,36 @@ function compare5Cartes($valeur, $type="") //le paramètre $type permet vérifi�
     }
 }
 
+function compareCarre($valeur)
+{
+     $gagner = [false,true,true,true,true];
+    $verif = [false,false,false,false,false];
+    
+    for($i=0; $i<4; $i++)
+    {
+        if($valeur[$i] == $valeur[$i+1])//je compare si la carte a la même valeur que la carte suivante
+        {
+            $verif[$i] = true;
+        }
+    }
+    if(($valeur[4] == $valeur[0]) ||($valeur[4] == $valeur[1]))//je compare la derniere carte du tableau avec la premier et la 2eme
+    {
+        $verif[4] = true;
+    }
+    sort($verif);// je tri le tableau pour qu'il corresponde au tableau $gagne
+    
+    if($verif == $gagner)
+    {
+        return true;
+    }
+    else
+    {
+        return 'perdu';
+    }
+}
 
-function verfiMain($args){
+
+function verifMain($args){
     $couleur = [];
     $valeur = [];
 
@@ -50,8 +78,8 @@ function verfiMain($args){
     }
     sort($valeur); // je trie le tableau de valeur dans  l'ordre croissant pour le comparer
 
-    $valeur5 = compare5Cartes($valeur, 'valeur');
-    $couleur5 = compare5Cartes($couleur);
+    $valeur5 = compareQuinte($valeur, 'valeur');
+    $couleur5 = compareQuinte($couleur);
 
     if(($valeur5 == true) and ($couleur5 == true))
     {

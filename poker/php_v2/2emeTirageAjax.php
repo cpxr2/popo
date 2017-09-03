@@ -4,9 +4,11 @@ require 'fonction.php';
 
 // Variable setter pour le teste
 
+/*
 $_POST["new"] = 3;
 $_POST["carteTirer"] = [0=>2, 1=>44];
 $_POST["mainFinal"] = [0=>23, 1=>42];
+*/
 
 
 
@@ -17,14 +19,13 @@ if(isset($_POST['new'])){
 
     $newDonne=[]; // tableau des cartes à renvoyer en ajax
     $nbCartes = $_POST['new']; //le nombre de nouvelles cartes à tirer
-    //$carteTirer = json_decode($_POST['carteTirer']); //tableau des cartes déjà tirées
-    //$mainFinal = json_decode($_POST['mainFinal']);
-    
+    $carteTirer = json_decode($_POST['carteTirer']); //tableau des cartes déjà tirées
+    $mainFinal = json_decode($_POST['mainFinal']);
     
     //variable de teste
     
-    $mainFinal = $_POST['mainFinal'];
-    $carteTirer = $_POST['carteTirer']; //tableau des cartes déjà tirées
+    //$mainFinal = $_POST['mainFinal'];
+    //$carteTirer = $_POST['carteTirer']; //tableau des cartes déjà tirées
 
 
     /******************************************
@@ -73,13 +74,13 @@ if(isset($_POST['new'])){
     ]);
 
     $resultat = $requete->fetchAll();
-  print_r($resultat);
+  //print_r($resultat);
         
     /******************************************
      *   PLACE DES FONCTIONS DE VERIF          *
      ******************************************/
     
-   verfiMain($resultat);
+   //verfiMain($resultat);
 
     /*echo 'retour de la requete : ';
     print_r($resultat);
@@ -91,7 +92,7 @@ if(isset($_POST['new'])){
     //$retour = json_encode($carteTirer);
 
     echo $retour;
-    //echo json_encode($carteTirer);
+   // echo json_encode($carteTirer);
 
     /*echo '<br />';
     echo 'nouvelle carte distribuer : ';
