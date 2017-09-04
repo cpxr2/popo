@@ -12,7 +12,7 @@ $("#donne1").click( function(){
                 main[i] = data[i];
                 carteTirer[i] = data[i];
             }
-                console.log(carteTirer);
+                //console.log(carteTirer);
                         
         },
         'json'

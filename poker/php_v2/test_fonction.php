@@ -188,12 +188,12 @@ echo 'doit retrouner \'gagner\' : ' . $resPaire . ' .<br /><br />';
 $resPaire = doublePaire($brelanTest);
 echo 'doit retrouner \'perdu\' : ' . $resPaire . ' .<br /><br />';
 
-$tar = array_count_values($doublePaire1);
+/*$tar = array_count_values($doublePaire1);
 print_r($tar);
 echo '<br />';
 $tar2 = array_values($tar);
 print_r($tar2);
-echo '<br /><br />';
+echo '<br /><br />';*/
 
 
 
@@ -218,3 +218,12 @@ echo '<br /><br />';
 $cIdent = carteIdentique($doublePaire2);
 echo $cIdent;
 echo '<br /><br />';
+
+$royal = [1, 10, 11, 12, 13];
+echo $cIdent;
+echo '<br /><br />';
+
+    $retour = json_encode($royal) . json_encode($cIdent);
+    //$retour = json_encode($carteTirer);
+
+    echo $retour;

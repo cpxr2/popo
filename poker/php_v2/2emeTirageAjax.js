@@ -28,7 +28,7 @@ $("#donne2").click( function(){
             console.log(data);
             for(i=0; i<5; i++){
                 if(retire[i] == true){
-                    $("#c" + i).attr("src", "images/(" + data[nouvelleCarteTirer] + ").png");
+                    $("#c" + i).attr("src", "images/(" + data[1][nouvelleCarteTirer] + ").png");
                     nouvelleCarteTirer++;
                 }
             }

@@ -1,6 +1,6 @@
 <?php
 require 'connexion.php';
-require 'fonction.php';
+require 'fonction_verif.php';
 
 // Variable setter pour le teste
 
@@ -80,7 +80,7 @@ if(isset($_POST['new'])){
      *   PLACE DES FONCTIONS DE VERIF          *
      ******************************************/
     
-   //verfiMain($resultat);
+   $gain = verifMain($resultat);
 
     /*echo 'retour de la requete : ';
     print_r($resultat);
@@ -88,7 +88,10 @@ if(isset($_POST['new'])){
     echo $testObjet['couleur_val'];*/
 
 
-    $retour = json_encode($newDonne);
+    $retour = json_encode($newDonne) . json_encode($gain);
+    
+    
+    
     //$retour = json_encode($carteTirer);
 
     echo $retour;

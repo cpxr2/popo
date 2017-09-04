@@ -283,14 +283,14 @@ function carteIdentique($valeur)
             return 'brelan';
             break;
         }
-        if($retourInv[$i] == 2)
+        elseif($retourInv[$i] == 2)
         {
-            $verif[$i] = true;
+            $double[$i] = true;
         }
     }
-    sort($verif);// je met le tableau dans l'ordre
-    
-       if($verif == $gagner)
+    sort($double);// je met le tableau dans l'ordre
+   
+       if($double == $gagner)
     {
         return '2 paires';
     }
