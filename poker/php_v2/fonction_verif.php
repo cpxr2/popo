@@ -34,23 +34,19 @@ function quinte($valeur= '', $couleur='')
     if(($gagner == $verifCoul) && ($royal == $verifVal))
     {
         return 'quinte royal';
-        break;
     }
     elseif(($gagner == $verifCoul) && ($gagner == $verifVal))//on compare les 2 tableaux et si ils sont égaux on retourne true
     {
         return 'quinte flush';
-        break;
     }
 
     elseif($gagner == $verifCoul)
     {
         return 'couleur';
-        break;
     }
     elseif($gagner == $verifVal)
     {
         return 'quinte';
-        break;
     }
     else
     {
@@ -85,22 +81,18 @@ function carteIdentique($valeur) // carré, full, brelan et double paires.
     if($retourInv == $carre)
     {
         return 'carré';
-        break;
     }
-    elseif($retourInv = $full)
+    elseif($retourInv == $full)
     {
-        return 'full';
-        break;
+        return 'full house';
     }
     elseif($retourInv == $brelan)
     {
         return 'brelan';
-        break;
     }
     elseif($retourInv == $paire)
     {
         return '2 paires';
-        break;
     }
     else
     {

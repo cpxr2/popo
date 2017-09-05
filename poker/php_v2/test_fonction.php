@@ -1,5 +1,13 @@
 <?php
-require 'fonction.php';
+require 'fonction_verif.php';
+$t = [0=>2, 1=>2, 2=>2, 3=>9, 4=>9];
+
+$cIdent = array_count_values($t);
+
+echo '<br /><br />';
+$retourInv = array_values($cIdent);
+    print_r($retourInv);
+
 
 // TEST DE TRI DE TABLEAU 
 echo 'TEST TRI DE TABLEAU';
@@ -223,7 +231,12 @@ $royal = [1, 10, 11, 12, 13];
 echo $cIdent;
 echo '<br /><br />';
 
-    $retour = json_encode($royal) . json_encode($cIdent);
+$royal[count($royal)] = $cIdent; 
+
+    $retour = json_encode($royal);
     //$retour = json_encode($carteTirer);
 
     echo $retour;
+
+
+

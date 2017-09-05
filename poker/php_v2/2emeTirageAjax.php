@@ -44,7 +44,7 @@ if(isset($_POST['new'])){
             //On vérifie si elle est pas deja dans la main.
             $dejaTirer = true;
 
-            for($j=0; $j<5; $j++)
+            for($j=0; $j<count($carteTirer); $j++)
             {
 
                 if(!array_search($carte, $carteTirer))//Si elle est deja tirer on passe en TRUE et on retire
@@ -75,12 +75,20 @@ if(isset($_POST['new'])){
 
     $resultat = $requete->fetchAll();
   //print_r($resultat);
+    
         
     /******************************************
      *   PLACE DES FONCTIONS DE VERIF          *
      ******************************************/
     
    $gain = verifMain($resultat);
+    $newDonne[count($newDonne)] = $gain;
+    //$newDonne[count($newDonne)] = $valeurcarte;
+    
+    foreach($resultat as $carte)
+    {
+        $newDonne[count($newDonne)] = $carte['nombre_val'];
+    }
 
     /*echo 'retour de la requete : ';
     print_r($resultat);
@@ -88,7 +96,7 @@ if(isset($_POST['new'])){
     echo $testObjet['couleur_val'];*/
 
 
-    $retour = json_encode($newDonne) . json_encode($gain);
+    $retour = json_encode($newDonne);
     
     
     
