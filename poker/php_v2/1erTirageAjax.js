@@ -20,7 +20,7 @@ $("#donne1").click( function(){
         },
         'json'
     );
-    
+   
     $("#donne1").hide(); // j'enleve le bouton distribuer
     $("#donne2").show(); // je met le 2eme bouton
     //$(".bouton").show(); // je met les boutons pour garder les cartes
@@ -29,4 +29,6 @@ $("#donne1").click( function(){
     clicCard("#c2", "#c2", 2, 2, 2);
     clicCard("#c3", "#c3", 3, 3, 3);
     clicCard("#c4", "#c4", 4, 4, 4);
+    
+    $("#donne1").attr("id", "donne2");
 });

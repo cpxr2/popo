@@ -66,27 +66,27 @@
                     <!--row des boutons-->
                     <div class="row">
 
-                        
+
                         <div class="col-xs-offset-1 col-xs-2 bouton" style="display: none;" id="bouton1">
                             <input type="button" value="garder" id="bou1" class="btn btn-primary" />
                         </div> 
 
-                        
+
                         <div class="col-xs-2 bouton" style="display: none;" id="bouton2">
                             <input type="button" value="garder" id="bou2" class="btn btn-primary" />
                         </div>
 
-                        
+
                         <div class="col-xs-2 bouton" style="display: none;" id="bouton3">
                             <input type="button" value="garder" id="bou3" class="btn btn-primary" />
                         </div>
 
-                        
+
                         <div class="col-xs-2 bouton" style="display: none;" id="bouton4">
                             <input type="button" value="garder" id="bou4" class="btn btn-primary" />  
                         </div>
 
-                        
+
                         <div class="col-xs-2 bouton" style="display: none;" id="bouton5">
                             <input type="button" value="garder" id="bou5" class="btn btn-primary" />
                         </div>
@@ -95,29 +95,22 @@
                     <!--les boutons qui distriue les cartes--> 
                     <div class="row">
 
-                        <!-- 1ere donne-->
-                        <div class="col-lg-offset-8 col-lg-4 col-lg-pull-8 col-lg-pull-8" id="dist1">
-                            <button class="btn btn-warning" id="donne1">Distribuer</button>
+                        <div class="col-lg-offset-4 col-lg-4 col-lg-push-4" id="dist1">
+
+                            <button class="btn btn-primary btn-circle btn-xl" id="donne1">Distribuer</button>
+
+                            <button class="btn btn-danger btn-circle btn-xl" style="display: none;" id="donne2" >Changer</button>
+
+                            <button class="btn btn-success btn-circle btn-xl" style="display: none;" id="retour" >Retour</button>
                         </div>
 
-                        <!-- 2eme donne-->
-                        <div class="col-lg-offset-8 col-lg-4 col-lg-pull-8" id="dist2">
-                            <button class="btn btn-danger" style="display: none;" id="donne2">Donne</button>
-                        </div>
-
-                        <!--bouton retour final-->
-                        <div class="col-lg-offset-8 col-lg-4 col-lg-pull-8" id="ret">
-                            <button class="btn btn-success" style="display: none;" id="retour">Retour</button>
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12" id="resultat"></div>
-                    </div>
-                </div> 
-            </div>
-            <!-- Test ajax -->
-            <div class="col-lg-12" id="resAjax"></div>
-        </div> 
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" id="resultat"></div>
+                </div>
+            </div> 
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="fonction_poker.js"></script>

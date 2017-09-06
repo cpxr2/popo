@@ -39,8 +39,8 @@ $("#donne2").click( function(){
         'json'
     );
 
-    $("#retour").show(); // je met le dernier bouton
     $("#donne2").hide(); // j'enlève le bouton "donne"
+    $("#retour").show(); // je met le dernier bouton
     $(".bouton").hide(); // j'enlève les boutons sous les cartes
     $( "#c0" ).unbind( "click");
     $( "#c1" ).unbind( "click");
