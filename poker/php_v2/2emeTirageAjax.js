@@ -47,4 +47,6 @@ $("#donne2").click( function(){
     $( "#c2" ).unbind( "click");
     $( "#c3" ).unbind( "click");
     $( "#c4" ).unbind( "click");
+    
+    console.log(pari);
 });

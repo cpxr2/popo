@@ -2,33 +2,31 @@ var compteur = [0, 0, 0, 0, 0];
 
 var retire = new Array(false, false, false, false, false);
 
+var pari = 10;
+
 $("#resultat").hide();
-//var clicCarte = false;
 
-// La fonction qui gere les boutons sous les cartes
-/*function selectCard (btnclick, carte, cpt, nbCard, retirer){  
+//affiche le montant a parier
+$("#montant").html(pari);
 
-    $(btnclick).click(function(){
-        compteur[cpt] ++;
-        if(compteur[cpt] %2==0)
-        {  
-            $(btnclick).attr("class","btn btn-primary");
-            $(carte).attr("src", "images/(" + main[nbCard] + ").png");
-            retire[retirer] = false;
-        }else{
-            $(btnclick).attr("class","btn btn-warning");
-            $(carte).attr("src", "images/(53).png");
-            retire[retirer] = true;
-        } 
-    });
-};
-//if(clicCarte){
-selectCard("#bou1", "#c0", 0, 0, 0);
-selectCard("#bou2", "#c1", 1, 1, 1);
-selectCard("#bou3", "#c2", 2, 2, 2);
-selectCard("#bou4", "#c3", 3, 3, 3);
-selectCard("#bou5", "#c4", 4, 4, 4);*/
-//}
+//bouton "+" pour augmenter le pari
+$("#plus").click(function(){
+    pari = pari + 10;
+    $("#montant").html(pari);
+});
+
+//bouton "-" pour diminuer le pari, mais pas en dessous de 10
+$("#moins").click(function(){
+    pari = pari - 10;
+    $("#montant").html(pari);
+    
+    if(pari<10)
+        {
+            pari = 10;
+            $("#montant").html(pari);
+        }
+});
+
 
 // Le clic sur le bouton "retour" réinitialise tout
 $("#retour").click(function(){
@@ -38,6 +36,8 @@ $("#retour").click(function(){
    } 
     $("#retour").hide();
     $("#donne1").show();
+    $("#plus").show();
+    $("#moins").show();
     carteTirer = [];
     retire = new Array(false, false, false, false, false);
     compteur = [0, 0, 0, 0, 0];

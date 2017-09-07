@@ -1,0 +1,7 @@
+1 - bouton RETOUR a changer en "input" pour recharger la page php avec les nouveaux montant de jeton. $_SERVER['PHP_SELF']
+
+2 - deplacer les initialisations des variables JS du bouton RETOUR en debut de script
+
+3 - envoyer le pari dans 2emeTirageAjax
+
+4 - SWITCH dans fonction_verif.php

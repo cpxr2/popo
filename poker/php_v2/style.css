@@ -1,16 +1,24 @@
 #page
 {
-  
+    font-family: 'Ubuntu', sans-serif;
 }
 #menu
 {
     background-color: gray;
 }
+#jeton
+{
+    font-size: 16px;
+    font-weight: 400; 
+    text-align: center;
+    background-color: aliceblue;
+    margin: 5px;
+}
 #tapis
 {
     height: 600px;
-      background-image: url(images/tapis.jpg);
-    
+    background-image: url(images/tapis.jpg);
+
 }
 #haut_tapis
 {
@@ -18,7 +26,7 @@
 }
 .carte
 {
-   text-align: center;
+    text-align: center;
 }
 .bouton
 {
@@ -49,15 +57,49 @@ button:focus
 {
     outline: 0 !important;
 }
-    
+
 /*bouton rond*/
 
 .btn-circle.btn-xl {
 
-  width: 150px;
-  height: 150px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 75px;
+    width: 150px;
+    height: 150px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 75px;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 18px;
+    line-height: 1.428571429;
+    border-radius: 15px;  
+}
+#montant
+{
+    font-size: 50px;
+    color: white;
+}
+#plusMoins
+{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+#moins
+{
+    margin-top: 5px;
+}
+#plus, #moins
+{
+   font-size: 20px; 
+    color: white;
+}
+#pari
+{
+    margin-top: 85px;
+    /*border: 1px solid black;*/
 }

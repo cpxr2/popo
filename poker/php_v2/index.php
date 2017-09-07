@@ -1,3 +1,8 @@
+<?php
+require 'fonction.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -5,17 +10,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Video Poker</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
-
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <div class="container" id="page">
-            <div class="row">
-                <div class="col-xs-12" id="menu">
+            <div class="row" id="menu">
+                <div class="col-xs-8" >
                     <button class="btn btn-info">Accueil</button>
                     <button class="btn btn-info">Compte</button>
                     <button class="btn btn-info">retour</button>
+                </div>
+                <div class="col-xs-offset-2 col-xs-2" id="jeton">
+                    Jetons :  <?= $jeton ?>
                 </div>
 
             </div>
@@ -101,13 +109,24 @@
 
                             <button class="btn btn-danger btn-circle btn-xl" style="display: none;" id="donne2" >Changer</button>
 
-                            <button class="btn btn-success btn-circle btn-xl" style="display: none;" id="retour" >Retour</button>
+                            <button class="btn btn-success btn-circle btn-xl" style="display: none;" id="retour" >Nouvelle<br /> partie</button>
+                        </div>
+
+                        <div class="col-xs-offset-2 col-xs-3" id="pari">
+                            <div class="row">
+                             <div class="col-xs-offset-4 col-xs-4" id="montant"></div>
+                            
+                               <div class="col-xs-4" id="plusMoins">
+                                <button class="btn btn-primary btn-circle" id="plus" >+</button>
+                                <button class="btn btn-primary btn-circle" id="moins" >-</button>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
-                <div class="row">
-                    <div class="col-lg-12" id="resultat"></div>
-                </div>
+                    <div class="row">
+                        <div class="col-lg-12" id="resultat"></div>
+                    </div>
                 </div>
             </div> 
         </div>
