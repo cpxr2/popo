@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container" id="page">
             <div class="row">
                 <div class="col-xs-12" id="menu">
                     <button class="btn btn-info">Accueil</button>
@@ -95,7 +95,7 @@
                     <!--les boutons qui distriue les cartes--> 
                     <div class="row">
 
-                        <div class="col-lg-offset-4 col-lg-4 col-lg-push-4" id="dist1">
+                        <div class="col-xs-offset-5 col-xs-2 " id="dist1">
 
                             <button class="btn btn-primary btn-circle btn-xl" id="donne1">Distribuer</button>
 
@@ -105,9 +105,9 @@
                         </div>
 
                     </div>
-                </div>
                 <div class="row">
                     <div class="col-lg-12" id="resultat"></div>
+                </div>
                 </div>
             </div> 
         </div>

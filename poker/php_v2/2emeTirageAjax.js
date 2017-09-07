@@ -30,9 +30,9 @@ $("#donne2").click( function(){
                 if(retire[i] == true){
                     $("#c" + i).attr("src", "images/(" + data[nouvelleCarteTirer] + ").png");
                     nouvelleCarteTirer++;
-                    $("#resultat").show();
-                    $("#resultat").html(data[nouvelleCarteTirer] + " !!!");
                 }
+                    $("#resultat").show();
+                    $("#resultat").html(data[data.length-1] + " !!!");
             }
                
         },

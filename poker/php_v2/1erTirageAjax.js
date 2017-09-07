@@ -30,5 +30,4 @@ $("#donne1").click( function(){
     clicCard("#c3", "#c3", 3, 3, 3);
     clicCard("#c4", "#c4", 4, 4, 4);
     
-    $("#donne1").attr("id", "donne2");
 });
