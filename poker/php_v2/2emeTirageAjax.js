@@ -19,7 +19,9 @@ $("#donne2").click( function(){
         {
             "new" : nouvelleCarte, //j'envoi le nombre de nouvelle carte a tirer
             "carteTirer" : JSON.stringify(carteTirer), // j'envoi le tableau des cartes déjà tirées
-            "mainFinal" : JSON.stringify(mainFinal) // j'envoi les cartes qui reste en mains
+            "mainFinal" : JSON.stringify(mainFinal), // j'envoi les cartes qui reste en mains
+            "pari" : JSON.stringify(pari),// envoi de la somme parié
+            "totalJeton" : JSON.stringify(nbJeton)
         },
 
         function(data){
@@ -31,10 +33,14 @@ $("#donne2").click( function(){
                     $("#c" + i).attr("src", "images/(" + data[nouvelleCarteTirer] + ").png");
                     nouvelleCarteTirer++;
                 }
-                    $("#resultat").show();
-                    $("#resultat").html(data[data.length-1] + " !!!");
+
             }
-               
+            $("#resultat").show();
+            $("#resultat").html(data[data.length-1] + " !!!");
+            nbJeton = nbJeton + data[data.length-2];
+            nbJetonInit = nbJetonInit + data[data.length-2];
+            $("#nbjeton").html(nbJeton);
+
         },
         'json'
     );
@@ -42,11 +48,13 @@ $("#donne2").click( function(){
     $("#donne2").hide(); // j'enlève le bouton "donne"
     $("#retour").show(); // je met le dernier bouton
     $(".bouton").hide(); // j'enlève les boutons sous les cartes
+
+    //desactive le clic sur les cartes
     $( "#c0" ).unbind( "click");
     $( "#c1" ).unbind( "click");
     $( "#c2" ).unbind( "click");
     $( "#c3" ).unbind( "click");
     $( "#c4" ).unbind( "click");
-    
+
     console.log(pari);
 });

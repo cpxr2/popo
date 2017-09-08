@@ -21,7 +21,8 @@ $newDonne=[]; // tableau des cartes à renvoyer en ajax
 $nbCartes = $_POST['new']; //le nombre de nouvelles cartes à tirer
 $carteTirer = json_decode($_POST['carteTirer']); //tableau des cartes déjà tirées
 $mainFinal = json_decode($_POST['mainFinal']);
-
+$pari = json_decode($_POST['pari']); // la somme parier
+$totalJeton = json_decode($_POST['totalJeton']);
 //variable de teste
 
 //$mainFinal = $_POST['mainFinal'];
@@ -56,7 +57,7 @@ for($i=0; $i<$nbCartes; $i++)// on tire le nombre de carte qui sont en TRUE.
 
     // si elle est pas deja tirer on la met dans la main.
     $carteTirer[count($carteTirer)] = $carte;
-    $newDonne[$i] = $carte;
+    $newDonne[$i] = $carte;// les cartes a changer
     $mainFinal[count($mainFinal)] = $carte;
 }
 
@@ -81,13 +82,9 @@ $resultat = $requete->fetchAll();
      *   PLACE DES FONCTIONS DE VERIF          *
      ******************************************/
 
-$gain = verifMain($resultat);
-//$newDonne[count($newDonne)] = $valeurcarte;
+$gain = verifMain($resultat); // fonction qui verifie si la main est gagnante
 
-foreach($resultat as $carte)
-{
-    $newDonne[count($newDonne)] = $carte['nombre_val'];
-}
+$montantGagner = gain($pari, $gain); // fonction qui calcule le gain
 
 /*echo 'retour de la requete : ';
     print_r($resultat);
@@ -95,9 +92,10 @@ foreach($resultat as $carte)
     echo $testObjet['couleur_val'];*/
 
 
-$newDonne[count($newDonne)] = $nbCartes;    
+$newDonne[count($newDonne)] = $nbCartes; //retourne les carte a changé
+$newDonne[count($newDonne)] = $montantGagner; //retroune le montant gagné
+$newDonne[count($newDonne)] = $gain;//retourne le nom de la main gagnante
 
-$newDonne[count($newDonne)] = $gain;
 $retour = json_encode($newDonne);
 
 

@@ -1,5 +1,5 @@
 <?php
-require 'fonction.php';
+//require 'fonction.php';
 
 ?>
 
@@ -22,8 +22,9 @@ require 'fonction.php';
                     <button class="btn btn-info">Compte</button>
                     <button class="btn btn-info">retour</button>
                 </div>
+                <!--affichage du solde de jeton-->
                 <div class="col-xs-offset-2 col-xs-2" id="jeton">
-                    Jetons :  <?= $jeton ?>
+                    Jetons :  <span id="nbjeton"></span>
                 </div>
 
             </div>
@@ -114,7 +115,7 @@ require 'fonction.php';
 
                         <div class="col-xs-offset-2 col-xs-3" id="pari">
                             <div class="row">
-                             <div class="col-xs-offset-4 col-xs-4" id="montant"></div>
+                             <div class=" col-xs-6" id="montant"></div>
                             
                                <div class="col-xs-4" id="plusMoins">
                                 <button class="btn btn-primary btn-circle" id="plus" >+</button>
@@ -133,6 +134,7 @@ require 'fonction.php';
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="fonction_poker.js"></script>
+        <script src="recupJetonAjax.js"></script>
         <script src="1erTirageAjax.js"></script>
         <script src="2emeTirageAjax.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>

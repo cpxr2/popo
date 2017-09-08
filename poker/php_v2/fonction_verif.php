@@ -117,11 +117,11 @@ function verifMain($args){
     }
     sort($valeur); // je trie le tableau de valeur dans  l'ordre croissant pour le comparer
 
-    
+
     // on utilise les 2 fonctions pour vérifier les cartes
     $verifQuinte = quinte($valeur, $couleur);
     $verifCarre = carteIdentique($valeur);
-    
+
     if($verifQuinte != false) //si la valeur de verifQuinte est false, je renvoi obligatoirement la valeur de verifCarre qui est ou un main gagnante ou false si rien ne gagne.
     {
         return $verifQuinte;
@@ -132,7 +132,45 @@ function verifMain($args){
     }
     else
     {
-    return $verifCarre;    
+        return $verifCarre;    
     }
 
+}
+
+/******************************************
+     *          GAIN PARI                   *
+     ******************************************/
+
+function gain($pari, $gain)
+{
+    switch($gain) {
+            
+        case "perdu":
+            return ($pari * 0);
+            break;
+        case "2 paires":
+            return ($pari * 2);
+            break;
+        case "brelan":
+            return ($pari * 3);
+            break;
+        case "quinte":
+            return ($pari * 4);
+            break;
+        case "couleur":
+            return ($pari * 5);
+            break;
+        case "full house":
+            return ($pari * 6);
+            break;
+        case "carré":
+            return ($pari * 7);
+            break;
+        case "quinte flush":
+            return ($pari * 8);
+            break;
+        case "quinte royal":
+            return ($pari * 10);
+            break;
+    }
 }

@@ -82,6 +82,7 @@ button:focus
 {
     font-size: 50px;
     color: white;
+    text-align: right;
 }
 #plusMoins
 {
@@ -95,7 +96,7 @@ button:focus
 }
 #plus, #moins
 {
-   font-size: 20px; 
+    font-size: 20px; 
     color: white;
 }
 #pari
