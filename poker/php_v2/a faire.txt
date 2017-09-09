@@ -1,7 +1,7 @@
-1 - bouton RETOUR a changer en "input" pour recharger la page php avec les nouveaux montant de jeton. $_SERVER['PHP_SELF']
+4 - tester fonction quinte
 
-2 - deplacer les initialisations des variables JS du bouton RETOUR en debut de script
+5 - la quinte ne marche pas 
 
-3 - mettre a jour les jetons dans la bdd grace a $totalJeton + les gains
+* - mettre en  place l'info des gains avec le CSS
 
-4 - SWITCH dans fonction_verif.php
+* - gerer la fin des jetons 0 jeton fin de partie

@@ -115,28 +115,39 @@
 
                         <div class="col-xs-offset-2 col-xs-3" id="pari">
                             <div class="row">
-                             <div class=" col-xs-6" id="montant"></div>
-                            
-                               <div class="col-xs-4" id="plusMoins">
-                                <button class="btn btn-primary btn-circle" id="plus" >+</button>
-                                <button class="btn btn-primary btn-circle" id="moins" >-</button>
-                            </div>
+                                <div class=" col-xs-6" id="montant"></div>
+
+                                <div class="col-xs-4" id="plusMoins">
+                                    <button class="btn btn-primary btn-circle" id="plus" >+</button>
+                                    <button class="btn btn-primary btn-circle" id="moins" >-</button>
+                                </div>
                             </div>
                         </div>
 
                     </div>
+                    <!--banniere qui affiche le resutat avec un fond transparent-->
                     <div class="row">
-                        <div class="col-lg-12" id="resultat"></div>
-                    </div>
-                </div>
-            </div> 
-        </div>
+                        <div class="col-lg-12" id="resultat">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="fonction_poker.js"></script>
-        <script src="recupJetonAjax.js"></script>
-        <script src="1erTirageAjax.js"></script>
-        <script src="2emeTirageAjax.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    </body>
-</html>
+                          <!-- affiche "brelan, full, 2paires.....-->
+                            <div class="row">
+                                <div class="col-lg-12" id="mainGagnante"></div>
+                            </div>
+                            <!--affiche le nombre de jeton gagnés-->
+                            <div class="row">
+                                <div class="col-lg-12" id="gain"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="fonction_poker.js"></script>
+            <script src="recupJetonAjax.js"></script>
+            <script src="1erTirageAjax.js"></script>
+            <script src="2emeTirageAjax.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+            </body>
+        </html>

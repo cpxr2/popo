@@ -3,8 +3,9 @@ var nbJeton = 0;
 var nbJetonInit = 0;
 var retire = new Array(false, false, false, false, false);
 
-var pari = 0;
+var pari = 10;
 
+//cache la bannière qui affiche les résultats
 $("#resultat").hide();
 
 
@@ -13,39 +14,22 @@ $("#montant").html(pari);
 
 //bouton "+" pour augmenter le pari
 $("#plus").click(function(){
-
-    if(nbJeton<=0)
+    
+    if((nbJeton-pari)>0)
     {
-        nbJeton=0;
-    }
-    else
-    {
-        pari = pari + 10;
-        nbJeton = nbJeton - 10;            
-    }
-    $("#montant").html(pari);
-    $("#nbjeton").html(nbJeton);
+        pari = pari + 10;     
+    }  
+    $("#montant").html(pari);   
 });
 
 //bouton "-" pour diminuer le pari, mais pas en dessous de 10
 $("#moins").click(function(){
 
-    if(nbJeton >= nbJetonInit)
+    if(((nbJeton-pari)>0) && (pari>=20))
     {
-        nbJeton = nbJetonInit;
-    }
-    else if(pari<10)
-    {
-        pari = 0;
-    }
-    else
-    {
-        pari = pari - 10;
-        nbJeton = nbJeton + 10;
-    }
-    $("#montant").html(pari);
-    $("#nbjeton").html(nbJeton);
-
+        pari = pari - 10;     
+    }  
+    $("#montant").html(pari);    
 });
 
 
@@ -59,14 +43,15 @@ $("#retour").click(function(){
     $("#donne1").show();
     $("#plus").show();
     $("#moins").show();
+    
     carteTirer = [];
     retire = new Array(false, false, false, false, false);
     compteur = [0, 0, 0, 0, 0];
     nouvelleCarte = 0;
     mainFinal = [];
-    pari = 0;
     $("#montant").html(pari);
     $("#resultat").hide();
+    $("#gain").html("");
 });
 
 function clicCard (btnclick, carte, cpt, nbCard, retirer){  

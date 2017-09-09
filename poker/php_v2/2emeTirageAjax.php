@@ -61,6 +61,7 @@ for($i=0; $i<$nbCartes; $i++)// on tire le nombre de carte qui sont en TRUE.
     $mainFinal[count($mainFinal)] = $carte;
 }
 
+
 /******************************************
      *   RECHERCHE CARTES DANS BDD            *
      ******************************************/
@@ -75,8 +76,6 @@ $requete->execute([
 ]);
 
 $resultat = $requete->fetchAll();
-//print_r($resultat);
-
 
 /******************************************
      *   PLACE DES FONCTIONS DE VERIF          *
@@ -86,11 +85,17 @@ $gain = verifMain($resultat); // fonction qui verifie si la main est gagnante
 
 $montantGagner = gain($pari, $gain); // fonction qui calcule le gain
 
-/*echo 'retour de la requete : ';
-    print_r($resultat);
-    $testObjet = $resultat[0];
-    echo $testObjet['couleur_val'];*/
 
+/******************************************
+     *   MàJ DES JETONS DANS LA BDD            *
+     ******************************************/
+
+$miseAJour = $bdd->prepare('UPDATE utilisateur SET jeton_util = :jeton WHERE id_util=1');
+$miseAJour->execute(array(':jeton'=>($totalJeton+$gain)));
+
+/******************************************
+     *          CREATION DU JSON               *
+     ******************************************/
 
 $newDonne[count($newDonne)] = $nbCartes; //retourne les carte a changé
 $newDonne[count($newDonne)] = $montantGagner; //retroune le montant gagné
@@ -99,7 +104,6 @@ $newDonne[count($newDonne)] = $gain;//retourne le nom de la main gagnante
 $retour = json_encode($newDonne);
 
 
-//$retour = json_encode($carteTirer);
 
 echo $retour;
 // echo json_encode($carteTirer);

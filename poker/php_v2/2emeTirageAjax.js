@@ -3,13 +3,13 @@ var mainFinal = [];
 
 $("#donne2").click( function(){
     clicCarte = false;
-    //console.log(carteTirer);
+    console.log(carteTirer);
 
-    for(i=0; i<5; i++){
+    for(i=0; i<5; i++){//une boucle qui compte le nombre de carte à changer
         if(retire[i] == true){
             nouvelleCarte++;
         }else{
-            mainFinal[mainFinal.length] = main[i]; 
+            mainFinal[mainFinal.length] = main[i]; //ici on met les cartes que l'on garde dans la main final
         }
     }
 
@@ -21,25 +21,34 @@ $("#donne2").click( function(){
             "carteTirer" : JSON.stringify(carteTirer), // j'envoi le tableau des cartes déjà tirées
             "mainFinal" : JSON.stringify(mainFinal), // j'envoi les cartes qui reste en mains
             "pari" : JSON.stringify(pari),// envoi de la somme parié
-            "totalJeton" : JSON.stringify(nbJeton)
+            "totalJeton" : JSON.stringify(nbJeton)// j'envoi les jetons qu'il reste pour mettre a jour la bdd
         },
 
         function(data){
 
-            var nouvelleCarteTirer = 0;
-            console.log(data);
+            var nouvelleCarteTirer = 0; //variable qui sert a trouver où placer les nouvelles cartes
+            
+            console.log(data); //affichage console pour teste
+            
+            // boucle qui met les cartes a leur BONNE place
             for(i=0; i<5; i++){
-                if(retire[i] == true){
+                if(retire[i] == true){//vérifie si l'on doit changer cette carte ou pas
                     $("#c" + i).attr("src", "images/(" + data[nouvelleCarteTirer] + ").png");
                     nouvelleCarteTirer++;
                 }
 
             }
-            $("#resultat").show();
-            $("#resultat").html(data[data.length-1] + " !!!");
-            nbJeton = nbJeton + data[data.length-2];
-            nbJetonInit = nbJetonInit + data[data.length-2];
+            
+            $("#resultat").show();//fait apparaitre le bandeau de résultat
+            $("#mainGagnante").html(data[data.length-1] + " !!!");//affiche la main gagnante
+            if(data[data.length-2] != 0)//si les gains ne sont pas nul on les affiches
+            {
+                $("#gain").html("vous avez gagner " + data[data.length-2] + " jetons.");
+            }
+            nbJeton = nbJeton + data[data.length-2];//on met a jour et on affiche le nombre total de jeton
             $("#nbjeton").html(nbJeton);
+            
+            nbJetonInit = nbJetonInit + data[data.length-2];//on met a jour le total de jeton qui sert de vérif
 
         },
         'json'

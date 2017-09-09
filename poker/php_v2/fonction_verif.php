@@ -44,7 +44,7 @@ function quinte($valeur= '', $couleur='')
     {
         return 'couleur';
     }
-    elseif($gagner == $verifVal)
+    elseif(($gagner == $verifVal) || ($verifVal == $royal))
     {
         return 'quinte';
     }
@@ -78,7 +78,29 @@ function carteIdentique($valeur) // carré, full, brelan et double paires.
 
     // verif de la main
 
-    if($retourInv == $carre)
+    switch($retourInv)
+    {
+        case($retourInv == $carre):
+            return 'carré';
+            break;
+
+        case($retourInv == $full):
+            return 'full house';
+            break;
+
+        case($retourInv == $brelan):
+            return 'brelan';
+            break;
+
+        case($retourInv == $paire):
+            return '2 paires';
+            break;
+
+        default:
+            return false;
+    }
+
+    /*if($retourInv == $carre)
     {
         return 'carré';
     }
@@ -98,7 +120,7 @@ function carteIdentique($valeur) // carré, full, brelan et double paires.
     {
         return false;    
     }
-
+*/
 }
 
 /******************************************
@@ -144,7 +166,7 @@ function verifMain($args){
 function gain($pari, $gain)
 {
     switch($gain) {
-            
+
         case "perdu":
             return ($pari * 0);
             break;
