@@ -31,7 +31,7 @@ function quinte($valeur= '', $couleur='')
     $verifVal[4] = true;// le dernier indice du tableau n'est pas verifié, alors on le set a true pour compléter le tableau
     $verifCoul[4] = true;
 
-    if(($gagner == $verifCoul) && ($royal == $verifVal))
+    if(($gagner == $verifCoul) && ($royal == $valeur))
     {
         return 'quinte royal';
     }
@@ -44,7 +44,7 @@ function quinte($valeur= '', $couleur='')
     {
         return 'couleur';
     }
-    elseif(($gagner == $verifVal) || ($verifVal == $royal))
+    elseif(($gagner == $verifVal) || ($valeur == $royal))
     {
         return 'quinte';
     }

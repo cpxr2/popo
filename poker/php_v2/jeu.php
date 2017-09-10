@@ -1,4 +1,7 @@
 <?php
+session_start();
+if(isset($_SESSION['nbJeton']))
+{
 //require 'fonction.php';
 
 ?>
@@ -11,16 +14,20 @@
         <title>Video Poker</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/jeu.css">
     </head>
 
     <body>
         <div class="container" id="page">
             <div class="row" id="menu">
-                <div class="col-xs-8" >
+                <div class="col-xs-6" >
                     <button class="btn btn-info">Accueil</button>
                     <button class="btn btn-info">Compte</button>
-                    <button class="btn btn-info">retour</button>
+                    <a href="deconnexion.php"><button class="btn btn-danger">Deconnection</button></a>
+                </div>
+                
+                <div class="col-xs-2" >
+                Bienvenue <?=$_SESSION['pseudo']?>.
                 </div>
                 <!--affichage du solde de jeton-->
                 <div class="col-xs-offset-2 col-xs-2" id="jeton">
@@ -129,25 +136,33 @@
                     <div class="row">
                         <div class="col-lg-12" id="resultat">
 
-                          <!-- affiche "brelan, full, 2paires.....-->
+                            <!-- affiche "brelan, full, 2paires.....-->
                             <div class="row">
                                 <div class="col-lg-12" id="mainGagnante"></div>
                             </div>
+
                             <!--affiche le nombre de jeton gagnés-->
                             <div class="row">
                                 <div class="col-lg-12" id="gain"></div>
                             </div>
-
                         </div>
                     </div>
                 </div> 
             </div>
+        </div>
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="fonction_poker.js"></script>
-            <script src="recupJetonAjax.js"></script>
-            <script src="1erTirageAjax.js"></script>
-            <script src="2emeTirageAjax.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-            </body>
-        </html>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/fonction_poker.js"></script>
+        <script src="js/recupJetonAjax.js"></script>
+        <script src="js/1erTirageAjax.js"></script>
+        <script src="js/2emeTirageAjax.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
+<?php
+}
+else
+{
+    echo 'acces refusé';
+}
+?>

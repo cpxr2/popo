@@ -36,7 +36,7 @@ $("#moins").click(function(){
 // Le clic sur le bouton "retour" réinitialise tout
 $("#retour").click(function(){
     for(i=0; i<5; i++){
-        $("#c" + i).attr("src", "images/(53).png");
+        $("#c" + i).attr("src", "../images/(53).png");
         //$("#bou" + (i+1)).attr("class","btn btn-primary");
     } 
     $("#retour").hide();
@@ -60,10 +60,10 @@ function clicCard (btnclick, carte, cpt, nbCard, retirer){
         compteur[cpt] ++;
         if(compteur[cpt] %2==0)
         {  
-            $(carte).attr("src", "images/(" + main[nbCard] + ").png");
+            $(carte).attr("src", "../images/(" + main[nbCard] + ").png");
             retire[retirer] = false;
         }else{
-            $(carte).attr("src", "images/(53).png");
+            $(carte).attr("src", "../images/(53).png");
             retire[retirer] = true;
         } 
     });

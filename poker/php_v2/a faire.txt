@@ -1,7 +1,7 @@
-4 - tester fonction quinte
-
-5 - la quinte ne marche pas 
+* - bug de distribution a la 2eme donne. (pas toujours)
 
 * - mettre en  place l'info des gains avec le CSS
 
 * - gerer la fin des jetons 0 jeton fin de partie
+
+* - page de l'ajout de jeton

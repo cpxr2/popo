@@ -1,0 +1,29 @@
+html
+{
+    background-color: rgb(154,203,255);
+}
+body
+{
+    font-family: 'Ubuntu', sans-serif;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+.container
+{
+    width: auto;
+}
+label
+{
+    display: block;
+    float: left;
+    width: 200px;
+}
+#confirmation
+{
+    font-size: 35px;
+}

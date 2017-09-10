@@ -16,9 +16,9 @@ $brelanTest =array(
     4 => array( 'nombre_val' => 12, 'couleur_val' => 'coeur') );
 
 $quinteTest =array( 
-    0 => array( 'nombre_val' => 8, 'couleur_val' => 'trefle'), 
-    1 => array( 'nombre_val' => 9, 'couleur_val' => 'trefle'), 
-    2 => array( 'nombre_val' => 10, 'couleur_val' => 'trefle'), 
+    0 => array( 'nombre_val' => 1, 'couleur_val' => 'trefle'), 
+    1 => array( 'nombre_val' => 13, 'couleur_val' => 'trefle'), 
+    2 => array( 'nombre_val' => 10, 'couleur_val' => 'coeur'), 
     3 => array( 'nombre_val' => 11, 'couleur_val' => 'trefle'), 
     4 => array( 'nombre_val' => 12, 'couleur_val' => 'trefle') );
 
@@ -44,7 +44,7 @@ echo $cIdent;
 echo '<br /><br />';
 
 $main = verifMain($quinteTest);
-echo $main;
+echo 'Une quinte flush = ' . $main;
 echo '<br /><br />';
 
 $main2 = verifMain($mainTest);
@@ -54,3 +54,6 @@ echo '<br /><br />';
 $main3 = verifMain($brelanTest);
 echo $main3;
 echo '<br /><br />';
+
+$passe = hash('sha256', 'aaa', false);
+echo $passe;
