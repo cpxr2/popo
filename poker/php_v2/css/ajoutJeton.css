@@ -1,0 +1,15 @@
+html
+{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(154,203,255);
+}
+body
+{
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border: 1px solid white;
+    border-radius: 20px;
+}
