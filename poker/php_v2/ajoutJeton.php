@@ -4,7 +4,7 @@ if($_SESSION['acces'] == 3)
 {
     require 'connexion.php';
     
-    $requete = $bdd->query('SELECT * FROM utilisateur');
+    $requete = $bdd->query('SELECT id_util, pseudo_util FROM utilisateur');
     //$resultat = $requete->fetch();
     //print_r($resultat);
     
@@ -31,13 +31,14 @@ if(!isset($_POST['ajouter']))
     <form method="post" action="<?php $_SERVER['PHP_SELF']?>">
     <div class="form-group">
         <label for="joueur">Choisir un joueur : </label>
-        <select name="joueur" id="id">
+        <select name="id_util" id="joueur">
             <?php
         while($pseudo = $requete->fetch())
         {
             ?>
             <option value="<?=$pseudo['id_util']?>"><?=$pseudo['pseudo_util']?></option>
             <?php
+               
         }
             ?>
         </select>
@@ -53,14 +54,22 @@ if(!isset($_POST['ajouter']))
     }
     else
     {
+       
         $jeton = $_POST['jeton'];
-        $joueur = $_POST['joueur'];
-        $id = $_POST['id'];
+        $id = $_POST['id_util'];
         
        $requete = $bdd->prepare('UPDATE utilisateur SET jeton_util = :jeton WHERE id_util = :id');
         $requete->execute([':jeton'=>$jeton, ':id'=>$id]);
     ?>
-        <p>Vous avez ajouté <?=$jeton?> au joueur <?=$joueur?></p>
+        <p>Vous avez ajouté <?=$jeton?> jetons.</p>
+        <br /><br />
+         <div class="row">
+                <div class="col-lg-12">
+                    <a href="back.php"><button class="btn btn-primary">Retour</button></a>
+                    <a href="ajoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
+                    <a href="deconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
+                </div>
+            </div>
       <?php  
     }
      ?>

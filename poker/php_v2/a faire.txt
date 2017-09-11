@@ -1,7 +1,3 @@
 * - bug de distribution a la 2eme donne. (pas toujours)
 
-* - mettre en  place l'info des gains avec le CSS
-
-* - gerer la fin des jetons 0 jeton fin de partie
-
-* - page de l'ajout de jeton
+* - rendre l'ajout du mot de passe obligatoire sur la création de joueur
