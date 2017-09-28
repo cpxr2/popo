@@ -75,7 +75,7 @@ if($_SESSION['acces'] == 3)
         $jeton = $_POST['jeton'];
         $id = $_POST['id_util'];
 
-        $requete = $bdd->prepare('UPDATE utilisateur SET jeton_util = :jeton WHERE id_util = :id');
+        $requete = $bdd->prepare('UPDATE utilisateur SET jeton_util = jeton_util + :jeton WHERE id_util = :id');
         $requete->execute([':jeton'=>$jeton, ':id'=>$id]);
         ?>
         <p>Vous avez ajouté <?=$jeton?> jetons.</p>

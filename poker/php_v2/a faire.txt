@@ -4,4 +4,6 @@ phillipe@wdmstudio.fr
 
 * - bug de distribution a la 2eme donne. (pas toujours)
 
-* - rendre l'ajout du mot de passe obligatoire sur la création de joueur
+* - problème connexion BDD dans le fichier "identification.php"
+
+* - harmoniser les CSS du back office

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['acces'] == 3)
+if($_SESSION['acces'] == 2)
 {
     require 'connexion.php';
     $requete = $bdd->query('SELECT id_util, pseudo_util FROM utilisateur');
@@ -24,7 +24,7 @@ if($_SESSION['acces'] == 3)
     <body>    
         <div class="container">      
             <?php
-
+//**************************** FORMULAIRE DE MODIF (ETAPE 2)*****************
     if(isset($_POST['choisir'])){
 
         $requete = $bdd->prepare('SELECT * FROM utilisateur WHERE id_util = :id;');
@@ -52,6 +52,8 @@ if($_SESSION['acces'] == 3)
 
 
             <?php
+//******************* CONFIRMATION DE LA MODIF (ETATPE 3)**************************
+                
     }else if(isset($_POST['modifier'])){
 
         $mdpHash = hash('sha256', $_POST['mdp'], false);
@@ -59,24 +61,24 @@ if($_SESSION['acces'] == 3)
         $mdp = $_POST['mdp'];
 
 
-        if($jeton != "") && ($mdp != ""){
+        if(($jeton != "") && ($mdp != "")){
 
 
-            $requete = $bdd->prepare("UPDATE utilisateur SET mdp_util=:mdp,jeton_util=:jeton WHERE :id;");
+            $requete = $bdd->prepare("UPDATE utilisateur SET mdp_util=:mdp,jeton_util=:jeton WHERE id_util = :id;");
             $requete->execute([':id'=>$_POST['id'],':mdp'=>$mdpHash,':jeton'=>$jeton]);
 
             echo '<span class="reponse">Le mot de passe de '. $_POST['pseudo'] . 'a été changer et il est crédité de ' . $jeton.' </span><br /><br />';
 
         }else if(isset($jeton)){
 
-            $requete = $bdd->prepare("UPDATE utilisateur SET jeton_util=:jeton WHERE :id;");
+            $requete = $bdd->prepare("UPDATE utilisateur SET jeton_util=:jeton WHERE id_util =  :id;");
             $requete->execute([':id'=>$_POST['id'],':jeton'=>$jeton]);
 
             echo '<span class="reponse">' . $_POST['pseudo'] . ' est crédité de ' . $jeton . '</span><br /><br />';
 
         }else if(isset($mdp)){
 
-            $requete = $bdd->prepare("UPDATE utilisateur SET mdp_util=:mdp WHERE :id;");
+            $requete = $bdd->prepare("UPDATE utilisateur SET mdp_util=:mdp WHERE  id_util = :id;");
             $requete->execute([':id'=>$_POST['id'],':mdp'=>$mdpHash]);
 
             echo '<span class="reponse">Le mot de passe de '. $_POST['pseudo'] . ' a été changer.</span><br /><br />';
@@ -85,7 +87,7 @@ if($_SESSION['acces'] == 3)
 
             echo '<span class="reponse">Auncune modification n\'a été apporté à ' .$_POST['pseudo'] . '</span><br /><br />';
         }
-
+//**************** CHOIX DU JOUEUR A MODIFIER (ETAPE 1)***********************
     }else{
 
         $requete = $bdd->query('SELECT id_util, pseudo_util FROM utilisateur');
@@ -113,12 +115,13 @@ if($_SESSION['acces'] == 3)
             </div>
             <?php
     }
+//**************** BAS DE LA PAGE *******************************
             ?>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="back.php"><button class="btn btn-primary">Retour</button></a>
-                    <a href="ajoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
-                    <a href="deconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
+                    <a href="backBar.php"><button class="btn btn-primary">Retour</button></a>
+                    <a href="backAjoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
+                    <a href="backDeconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
                 </div>
             </div>       
         </div>

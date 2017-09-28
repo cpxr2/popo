@@ -1,0 +1,43 @@
+body
+{
+    background-color: rgb(154,203,255) !important;
+}
+#page
+{
+    background-color: white;
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 30px;
+}
+h1
+{
+    text-decoration: underline;
+}
+form
+{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+label
+{    
+    width: 250px;
+    display: block;
+    float: left;
+}
+#erreur
+{
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-size: 25px;
+}
+.rouge
+{
+    color: red;
+}

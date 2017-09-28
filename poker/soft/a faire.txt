@@ -1,0 +1,6 @@
+phillipe@wdmstudio.fr
+
+
+
+* - bug de distribution a la 2eme donne. (pas toujours)
+
