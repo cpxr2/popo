@@ -1,3 +1,7 @@
+phillipe@wdmstudio.fr
+
+
+
 * - bug de distribution a la 2eme donne. (pas toujours)
 
 * - rendre l'ajout du mot de passe obligatoire sur la création de joueur

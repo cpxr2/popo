@@ -22,7 +22,7 @@ if($_SESSION['acces'] == 3)
   
    <a href="creerUtilisateur.php"><button class="btn btn-info">Créer un nouveau joueur</button></a><br /><br />
    <a href="ajoutJeton.php"><button class="btn btn-info">Ajouter des jetons</button></a><br /><br />
-   <a href="Autre.php"><button class="btn btn-info">Autre chose...</button></a><br /><br />
+   <a href="ModifJoueur.php"><button class="btn btn-info">Modifcation joueur</button></a><br /><br />
     
     <a href="jeu.php"><button class="btn btn-info">Jouer</button></a><br /><br />
     <script src=""></script>

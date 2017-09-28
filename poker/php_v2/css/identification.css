@@ -32,7 +32,12 @@ label
 }
 #erreur
 {
+    width: 100%;
     text-align: center;
     color: red;
     font-size: 25px;
+}
+.rouge
+{
+    color: red;
 }

@@ -13,3 +13,7 @@ body
     border: 1px solid white;
     border-radius: 20px;
 }
+.rouge
+{
+    color: red;
+}

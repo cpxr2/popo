@@ -27,3 +27,15 @@ label
 {
     font-size: 35px;
 }
+.rouge
+{
+    color: red;
+}
+.nom
+{
+    font-weight: bolder;
+}
+.reponse
+{
+    font-size: 20px;
+}
