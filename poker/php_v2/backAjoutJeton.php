@@ -4,7 +4,7 @@ if($_SESSION['acces'] == 2)
 {
     require 'connexion.php';
 
-    $requete = $bdd->query('SELECT id_util, pseudo_util FROM utilisateur');
+    $requete = $bdd->query('SELECT id_jou, nom_jou FROM joueur');
     //$resultat = $requete->fetch();
     //print_r($resultat);
 
@@ -19,7 +19,7 @@ if($_SESSION['acces'] == 2)
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href="css/ajoutJeton.css">
+        <link rel="stylesheet" href="css/backStyle.css">
     </head>
     <?php
     if(!isset($_POST['ajouter']))
@@ -32,12 +32,12 @@ if($_SESSION['acces'] == 2)
         <form method="post" action="<?php $_SERVER['PHP_SELF']?>" >
             <div class="form-group">
                 <label for="joueur">Choisir un joueur : </label>
-                <select name="id_util" id="joueur">
+                <select name="id_jou" id="joueur">
                     <?php
         while($pseudo = $requete->fetch())
         {
                     ?>
-                    <option value="<?=$pseudo['id_util']?>"><?=$pseudo['pseudo_util']?></option>
+                    <option value="<?=$pseudo['id_jou']?>"><?=$pseudo['nom_jou']?></option>
                     <?php
 
         }
@@ -49,11 +49,11 @@ if($_SESSION['acces'] == 2)
                 <input type="number" name="jeton" step="10" value="0" min="0" id="jeton"/><span class="rouge"> *</span>
             </div>
             <div class="erreur"></div><br/>
-            <input type="hidden" name="id" value="<?=$pseudo['id_util']?>" />
+            <input type="hidden" name="id" value="<?=$pseudo['id_jou']?>" />
             <input class="btn btn-primary" type="submit" value="Crediter" id="credit" name="ajouter" /> 
         </form>
         <br />
-        <a href="backBar.php"><button class="btn btn-primary">Retour</button></a>
+        <a href="backAdmin.php"><button class="btn btn-primary">Retour</button></a>
         <script>
             $("#credit").click(function(e){
                 
@@ -70,16 +70,16 @@ if($_SESSION['acces'] == 2)
     {
 
         $jeton = $_POST['jeton'];
-        $id = $_POST['id_util'];
+        $id = $_POST['id_jou'];
 
-        $requete = $bdd->prepare('UPDATE utilisateur SET jeton_util = jeton_util + :jeton WHERE id_util = :id');
+        $requete = $bdd->prepare('UPDATE joueur SET jeton_jou = jeton_jou + :jeton WHERE id_jou = :id');
         $requete->execute([':jeton'=>$jeton, ':id'=>$id]);
         ?>
         <p>Vous avez ajouté <?=$jeton?> jetons.</p>
         <br /><br />
         <div class="row">
             <div class="col-lg-12">
-                <a href="backBar.php"><button class="btn btn-primary">Retour</button></a>
+                <a href="backAdmin.php"><button class="btn btn-primary">Retour</button></a>
                 <a href="backAjoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
                 <a href="backDeconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
             </div>
