@@ -1,0 +1,12 @@
+#page
+{
+    width: 1200px;	
+
+}
+.page_drop
+{
+    margin: auto;
+    width: 1000px;
+    height: 600px;
+    border: 1px solid black;
+}

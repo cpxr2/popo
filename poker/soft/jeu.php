@@ -23,7 +23,7 @@ if(isset($_SESSION['nbJeton']))
                 <div class="col-xs-6" >
                     <button class="btn btn-info">Accueil</button>
                     <button class="btn btn-info">Compte</button>
-                    <a href="deconnexion.php"><button class="btn btn-danger">Deconnection</button></a>
+                    <a href="backDeconnexion.php"><button class="btn btn-danger">Deconnection</button></a>
                 </div>
                 
                 <div class="col-xs-2" >

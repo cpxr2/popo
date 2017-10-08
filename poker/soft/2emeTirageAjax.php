@@ -90,7 +90,7 @@ $montantGagner = gain($pari, $gain); // fonction qui calcule le gain
      *   MàJ DES JETONS DANS LA BDD            *
      ******************************************/
 
-$miseAJour = $bdd->prepare('UPDATE utilisateur SET jeton_util = :jeton WHERE id_util=1');
+$miseAJour = $bdd->prepare('UPDATE joueur SET jeton_jou = :jeton WHERE id_jou=1');
 $miseAJour->execute(array(':jeton'=>($totalJeton+$gain)));
 
 /******************************************

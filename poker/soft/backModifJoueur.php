@@ -1,15 +1,16 @@
 <?php
 session_start();
-if($_SESSION['acces'] == 3)
+if($_SESSION['acces'] == 2)
 {
     require 'connexion.php';
-    $requete = $bdd->query('SELECT id_util, pseudo_util FROM utilisateur');
+    $requete = $bdd->query('SELECT id_jou, nom_jou FROM joueur');
 ?>
 
 <!--******************** HTML HEAD ****************************-->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+       
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Modifier un joueur</title>
@@ -18,7 +19,7 @@ if($_SESSION['acces'] == 3)
                 crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href="css/creerUtilisateur.css">
+        <link rel="stylesheet" href="css/backStyle.css">
     </head>
 
     <body>    
@@ -27,20 +28,20 @@ if($_SESSION['acces'] == 3)
 //**************************** FORMULAIRE DE MODIF (ETAPE 2)*****************
     if(isset($_POST['choisir'])){
 
-        $requete = $bdd->prepare('SELECT * FROM utilisateur WHERE id_util = :id;');
-        $requete->execute([':id'=>$_POST['id_util']]);
+        $requete = $bdd->prepare('SELECT * FROM joueur WHERE id_jou = :id;');
+        $requete->execute([':id'=>$_POST['id_jou']]);
         $res = $requete->fetch();
             ?>
             <div class="row">
-                <div class="col-lg-12"><h1>Modifier de <span class="nom"><?=$res['pseudo_util']?></span></h1></div><br /><br />
+                <div class="col-lg-12"><h1>Modifier de <span class="nom"><?=$res['nom_jou']?></span></h1></div><br /><br />
             </div>
             <div class="row">
                 <form method="post" action="<?php $_SERVER['PHP_SELF']?>" >
                     <div class="form-group">
-                        <input type="hidden" name="id" value="<?=$res['id_util']?>"/>
-                        <input type="hidden" name="pseudo" value="<?=$res['pseudo_util']?>"/>
+                        <input type="hidden" name="id" value="<?=$res['id_jou']?>"/>
+                        <input type="hidden" name="pseudo" value="<?=$res['nom_jou']?>"/>
                         <label for="jeton">Nombre de jetons : </label>
-                        <input id="jeton" type="number" name="jeton" step="10" min="0" value="<?=$res['jeton_util']?>" /><br /><br />
+                        <input id="jeton" type="number" name="jeton" step="10" min="0" value="<?=$res['jeton_jou']?>" /><br /><br />
                         <label for="mdp">Nouveau mot de passe : </label>
                         <input id="mdp" type="text" name="mdp"/><br /><br />
 
@@ -64,33 +65,33 @@ if($_SESSION['acces'] == 3)
         if(($jeton != "") && ($mdp != "")){
 
 
-            $requete = $bdd->prepare("UPDATE utilisateur SET mdp_util=:mdp,jeton_util=:jeton WHERE id_util = :id;");
+            $requete = $bdd->prepare("UPDATE joueur SET mdp_jou=:mdp,jeton_jou=:jeton WHERE id_jou = :id;");
             $requete->execute([':id'=>$_POST['id'],':mdp'=>$mdpHash,':jeton'=>$jeton]);
 
-            echo '<span class="reponse">Le mot de passe de '. $_POST['pseudo'] . 'a été changer et il est crédité de ' . $jeton.' </span><br /><br />';
+            echo '<span class="reponse">Le mot de passe de '. $_POST['pseudo'] . ' a Ã©tÃ© changer et il est crÃ©ditÃ© de ' . $jeton.' </span><br /><br />';
 
         }else if(isset($jeton)){
 
-            $requete = $bdd->prepare("UPDATE utilisateur SET jeton_util=:jeton WHERE id_util =  :id;");
+            $requete = $bdd->prepare("UPDATE joueur SET jeton_jou=:jeton WHERE id_jou =  :id;");
             $requete->execute([':id'=>$_POST['id'],':jeton'=>$jeton]);
 
-            echo '<span class="reponse">' . $_POST['pseudo'] . ' est crédité de ' . $jeton . '</span><br /><br />';
+            echo '<span class="reponse">' . $_POST['pseudo'] . ' a un nouveau solde de ' . $jeton . ' jetons</span><br /><br />';
 
         }else if(isset($mdp)){
 
-            $requete = $bdd->prepare("UPDATE utilisateur SET mdp_util=:mdp WHERE  id_util = :id;");
+            $requete = $bdd->prepare("UPDATE joueur SET mdp_jou=:mdp WHERE  id_jou = :id;");
             $requete->execute([':id'=>$_POST['id'],':mdp'=>$mdpHash]);
 
-            echo '<span class="reponse">Le mot de passe de '. $_POST['pseudo'] . ' a été changer.</span><br /><br />';
+            echo '<span class="reponse">Le mot de passe de '. $_POST['pseudo'] . ' a Ã©tÃ© changer.</span><br /><br />';
 
         }else{
 
-            echo '<span class="reponse">Auncune modification n\'a été apporté à ' .$_POST['pseudo'] . '</span><br /><br />';
+            echo '<span class="reponse">Auncune modification n\'a Ã©tÃ© apportÃ© Ã  ' .$_POST['pseudo'] . '</span><br /><br />';
         }
 //**************** CHOIX DU JOUEUR A MODIFIER (ETAPE 1)***********************
     }else{
 
-        $requete = $bdd->query('SELECT id_util, pseudo_util FROM utilisateur');
+        $requete = $bdd->query('SELECT id_jou, nom_jou FROM joueur');
             ?>
             <div class="row">
                 <div class="col-lg-12"><h1>Choisissez un joueur</h1></div>
@@ -99,12 +100,12 @@ if($_SESSION['acces'] == 3)
                 <form method="post" action="<?php $_SERVER['PHP_SELF']?>" >
                     <div class="form-group">
                         <label for="joueur">Choisir un joueur : </label>
-                        <select name="id_util" id="joueur">
+                        <select name="id_jou" id="joueur">
                             <?php
                 while($pseudo = $requete->fetch())
                 {
                             ?>
-                            <option value="<?=$pseudo['id_util']?>"><?=$pseudo['pseudo_util']?></option>
+                            <option value="<?=$pseudo['id_jou']?>"><?=$pseudo['nom_jou']?></option>
                             <?php
                 }
                             ?>
@@ -119,9 +120,9 @@ if($_SESSION['acces'] == 3)
             ?>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="back.php"><button class="btn btn-primary">Retour</button></a>
-                    <a href="ajoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
-                    <a href="deconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
+                    <a href="backAdmin.php"><button class="btn btn-primary">Retour</button></a>
+                    <a href="backAjoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
+                    <a href="backDeconnexion.php"><button class="btn btn-danger">DÃ©connexion</button></a>
                 </div>
             </div>       
         </div>
@@ -131,6 +132,6 @@ if($_SESSION['acces'] == 3)
 
 }else{
 
-    echo 'acces non autorisé.';
+    echo 'acces non autorisÃ©.';
 }
 ?>

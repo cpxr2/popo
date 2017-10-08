@@ -4,3 +4,6 @@ phillipe@wdmstudio.fr
 
 * - bug de distribution a la 2eme donne. (pas toujours)
 
+* - problème connexion BDD dans le fichier "identification.php"
+
+* - harmoniser les CSS du back office
