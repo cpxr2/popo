@@ -11,8 +11,8 @@
     <body>
 
         <div id="page">
-            <div class="page_drop">
-
+            <div id="page_drop">
+  
             </div>
                 <br /><br />
                 <div id="test2">
@@ -30,21 +30,31 @@
         <script>
 
             $(function(){
+                var compteur = 0;
 
                 $("#b1").click(function(){
-                    $(".test").html($("#text_drag").val());
+                    compteur ++
+                    $(".test").append('<div class="ui-droppable elem' + compteur + '">' + $("#text_drag").val() + '</div>');
+                    $(".test").addClass("element"+compteur);
                     $("#text_drag").val("");
                 });
 
                 $(".test").draggable({
-                    containment: ".page_drop",
+                    //containment: "#page_drop",
                     grid: [20,20],
-                    revert: true,
-                    distance: 10
+                    
+                    
+                    //revert: true,
+                    
                 });
 
 
-                $(".page_drop").droppable();
+                $("#page_drop").droppable({
+                    accept: ".test",
+                    drop: function(){
+                        console.log("reussi");
+                    }
+                });
             });
 
         </script>
