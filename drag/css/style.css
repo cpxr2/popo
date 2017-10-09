@@ -11,3 +11,13 @@
     height: 600px;
     border: 1px solid black;
 }
+.test
+{
+    position: relative;
+}
+.cardre
+{
+    border: 1px solid black;
+    border-radius:  10px;
+    padding: 10px;
+}
