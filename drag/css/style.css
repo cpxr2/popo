@@ -1,13 +1,39 @@
+body
+{
+    background-color: #FFB2A3;
+    font-family: 'Ubuntu', sans-serif;
+}
 #page
 {
     width: 1000px;	
     margin: auto;
-
+    padding: 10px;
+    background-color: #DDC9FF;
 }
 #page_drop
 {
     margin: auto;
+
     width: 800px;
     height: 600px;
     border: 1px solid black;
+}
+#principal
+{
+    margin-top: 30px;
+}
+.cardre
+{
+    border: 1px solid black;
+    border-radius:  10px;
+    padding: 10px;
+}
+#blockBouton 
+{
+    margin: 15px;	
+    
+}
+#saisie
+{
+    display: inline;
 }
