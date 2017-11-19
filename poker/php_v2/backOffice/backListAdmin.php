@@ -1,18 +1,22 @@
+
+
+SESSION A PARAMETRER
+
+
 <!DOCTYPE html>
-<html lang="">
+<html lang="fr">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Liste admins</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href="css/backStyle.css">
+        <?php
+        $titrePage="Liste des Admins";
+        include '../include/header.php';
+        ?>
+        <link rel="stylesheet" href="../css/backStyle.css">
     </head>
 
     <body>
         <div class="container">
             <div class="col-lg-12">
-                <h1>Liste des admins</h1>       
+                <h1>Liste des admins</h1>
             </div><br /><br />
 
             <div class="ligne">
@@ -38,11 +42,11 @@
 <br /><br />
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="backPrimary.php"><button class="btn btn-primary">Retour</button></a>
+                    <a href="backSA.php"><button class="btn btn-primary">Retour</button></a>
                     <a href="backAjoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
                     <a href="backDeconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
                 </div>
-            </div>  
+            </div>
         </div>
     </body>
 </html>

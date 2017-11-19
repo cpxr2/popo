@@ -7,8 +7,8 @@ function hideBouton(){
 
 function boutonMenu(btn, elm, cpt){
     
-    hideBouton();
     $(btn).click(function(){
+    hideBouton();
         cpt++;
         if(cpt%2){
             $(elm).show();

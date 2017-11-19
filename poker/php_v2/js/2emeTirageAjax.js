@@ -3,7 +3,8 @@ var mainFinal = [];
 
 $("#donne2").click( function(){
     clicCarte = false;
-    
+    var nbJeton = parseInt($("#nbjeton").text(), 10);
+    console.log(nbJeton);
 
     for(i=0; i<5; i++){//une boucle qui compte le nombre de carte à changer
         if(retire[i] == true){
@@ -39,11 +40,11 @@ $("#donne2").click( function(){
         function(data){
 
             var nouvelleCarteTirer = 0; //variable qui sert a trouver où placer les nouvelles cartes
-            
+
             console.log("les datas retourner : "); //affichage console pour teste
             console.log(data);
             console.log("*******************************************");
-            
+
             // boucle qui met les cartes a leur BONNE place
             for(i=0; i<5; i++){
                 if(retire[i] == true){//vérifie si l'on doit changer cette carte ou pas
@@ -52,7 +53,7 @@ $("#donne2").click( function(){
                 }
 
             }
-            
+
             $("#resultat").show();//fait apparaitre le bandeau de résultat
             $("#mainGagnante").html(data[data.length-1] + " !!!");//affiche la main gagnante
             if(data[data.length-2] != 0)//si les gains ne sont pas nul on les affiches
@@ -61,7 +62,7 @@ $("#donne2").click( function(){
             }
             nbJeton = nbJeton + data[data.length-2];//on met a jour et on affiche le nombre total de jeton
             $("#nbjeton").html(nbJeton);
-            
+
             nbJetonInit = nbJetonInit + data[data.length-2];//on met a jour le total de jeton qui sert de vérif
 
         },

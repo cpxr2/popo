@@ -56,6 +56,27 @@ label
     color: red;
     font-size: 25px;
 }
+.attention
+{
+    color: red;
+}
+/**************************************************/
+/*               AJOUT JETON TEMP                 */
+/**************************************************/
+.boutonAdd
+{
+    margin-top: 10px;
+    width: 100px;
+}
+#ajoutJeton
+{
+    margin-top: 20px;
+}
+#blocBtn
+{
+    margin-top: 50px;
+}
+
 /**************************************************/
 /*                TABLEAU                         */
 /**************************************************/

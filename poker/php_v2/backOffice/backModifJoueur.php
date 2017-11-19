@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titrePage="Modifier un joueur";
 if($_SESSION['acces'] == 2)
 {
     require 'connexion.php';
@@ -10,20 +11,12 @@ if($_SESSION['acces'] == 2)
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-       
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Modifier un joueur</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href="css/backStyle.css">
+        <?php include '../include/header.php'; ?>
+        <link rel="stylesheet" href="../css/backStyle.css">
     </head>
 
-    <body>    
-        <div class="container">      
+    <body>
+        <div class="container">
             <?php
 //**************************** FORMULAIRE DE MODIF (ETAPE 2)*****************
     if(isset($_POST['choisir'])){
@@ -54,7 +47,7 @@ if($_SESSION['acces'] == 2)
 
             <?php
 //******************* CONFIRMATION DE LA MODIF (ETATPE 3)**************************
-                
+
     }else if(isset($_POST['modifier'])){
 
         $mdpHash = hash('sha256', $_POST['mdp'], false);
@@ -124,7 +117,7 @@ if($_SESSION['acces'] == 2)
                     <a href="backAjoutJeton.php"><button class="btn btn-warning">Jetons</button></a>
                     <a href="backDeconnexion.php"><button class="btn btn-danger">Déconnexion</button></a>
                 </div>
-            </div>       
+            </div>
         </div>
     </body>
 </html>

@@ -5,16 +5,15 @@ body
 }
 #page
 {
-    width: 1000px;	
+    float: left;
+    width: 1200px;	
     margin: auto;
     padding: 10px;
     background-color: #DDC9FF;
 }
 #page_drop
 {
-    margin: auto;
-
-    width: 800px;
+    margin: auto;    
     height: 600px;
     border: 1px solid black;
 }
@@ -30,10 +29,33 @@ body
 }
 #blockBouton 
 {
-    margin: 15px;	
-    
+    margin: 15px;	    
 }
-#saisie
+.colonne
 {
-    display: inline;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+ul
+{
+  list-style-type: none;
+}
+.column
+{
+     border: 1px dashed black;
+    min-height: 80px;
+}
+.ligne
+{
+    margin-top: 2px;
+}
+.htmlElt
+{
+    border: 1px solid #72777E;
+    background-color: #72777E;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    text-align: center;
 }

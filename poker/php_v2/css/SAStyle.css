@@ -1,0 +1,33 @@
+body
+{
+    background-color: #5D6D6C;
+}
+a
+{
+    color: white;
+    text-decoration: none;
+}
+#navigation
+{
+    width: 100%;
+}
+.parametre
+{
+    width: 15%;
+    display: inline;
+}
+i
+{
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.alert
+{
+    position: absolute;
+    z-index: 1;
+}
+.error
+{
+    color: white;
+    font-size: 1.2rem;
+}

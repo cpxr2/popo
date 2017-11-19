@@ -1,7 +1,7 @@
 <?php
 
 $host = 'localhost';
-$base = 'articleDrag';
+$base = 'article';
 $idbdd = 'root';
 
 try
