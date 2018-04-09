@@ -1,12 +1,10 @@
+<?php $titre = 'Identification'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
     <head>
-        <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <?php include 'include/header.php'; ?>
         <link rel="stylesheet" href="css/backStyle.css">
-        <title>Identification</title>
     </head>
 
     <body>
@@ -23,7 +21,7 @@
             </form>
 
             <?php
-    require 'connexion.php';
+    require 'backOffice/connexion.php';
 
                   if(isset($_POST['submit']))
                   {
@@ -32,7 +30,9 @@
                       $pseudo = $_POST['pseudo'];
 
                       $requete = $bdd->prepare('SELECT * FROM joueur WHERE nom_jou = :pseudo');
-                      $requete->execute(array(':pseudo'=>$pseudo));
+                      $requete->bindParam(':pseudo', $pseudo);
+                      $requete->execute();
+
                       $resultat = $requete->fetch();
 
                       $acces = $resultat['acces_jou'];
@@ -49,6 +49,8 @@
                           $_SESSION['id'] = $resultat['id_jou'];
                           $_SESSION['pseudo'] = $resultat['nom_jou'];
                           $_SESSION['acces'] = $acces;
+                          $_SESSION['partieTemp'] = false;
+                          $_SESSION['reload'] = false;
 
                           header("location: jeu.php");
 
@@ -57,7 +59,8 @@
                       {
 
                           $req = $bdd->prepare('SELECT * FROM admin WHERE nom_admin = :pseudo');
-                          $req->execute(array(':pseudo'=>$pseudo));
+                          $req->bindParam(':pseudo', $pseudo);
+                          $req->execute();
                           $resultat = $req->fetch();
 
                           $acces = $resultat['acces_admin'];
@@ -69,16 +72,17 @@
                               $_SESSION['acces'] = $acces;
                               $_SESSION['id_admin'] = $resultat['id_admin'];
                               $_SESSION['pseudo'] = $resultat['nom_admin'];
+                              $_SESSION['reload'] = false;
 
 
                               if($acces == 3)
-                              {                          
-                                  header("location: backPrimary.php"); 
+                              {
+                                  header("location: backOffice/backSA.php");
                               }
                               else if($acces == 2)
                               {
                                   $_SESSION['bar']=$resultat['id_bar'];
-                                  header("location: backAdmin.php");
+                                  header("location: backOffice/backAdmin.php");
                               }
 
                           }

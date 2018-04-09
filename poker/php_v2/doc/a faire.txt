@@ -1,0 +1,15 @@
+phillipe@wdmstudio.fr
+
+
+
+* - bug de distribution a la 2eme donne. (pas toujours)
+
+* - creer un table payment lier a id_admin pour avoir une date et le nom de la personne a qui le payment a ete fait
+
+* - peut etre un table credit sur le modele de la table payement
+
+* - probleme mot de passe page payment au 2eme passage.
+
+* - Probleme avec la barre de menu du super admin dans la jeu (le chemin des <a> ne correspond plus.)
+
+* - ATTENTION !!! le back depuis la page "jeu" permet de changer le nombre de jeton. A SECURISER !!!!

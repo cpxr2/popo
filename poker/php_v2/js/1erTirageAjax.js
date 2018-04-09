@@ -4,19 +4,28 @@ var carteTirer = [];
 
 $("#donne1").click( function(){
 
+    var nbJeton = parseInt($("#nbjeton").text(), 10);
+    var pari = parseInt($("#montant").text(), 10);
 
     if(nbJeton<=0)
     {
         $("#resultat").show();
-        $("#resultat").html("Vous n'avez plus de jetons.<br />Déconnectez vous et faites en ajouter.");
+        $("#resultat").html("Vous n'avez plus de jetons.<br />Fin de la partie.");
         $("#donne1").hide();
     }
     else
     {
+
         nbJeton = nbJeton - pari;
+
         $("#nbjeton").html(nbJeton);
+console.log("ajax 1 : "+nbJeton);
+        //******** TIRAGE CARTE AJAX **********
         $.post(
             '1erTirageAjax.php',
+            {
+                "nbjeton": JSON.stringify(nbJeton)
+            },
 
             function(data){
                 for(i=0; i<5; i++){
@@ -27,7 +36,7 @@ $("#donne1").click( function(){
                 // affichage pour debug
                 console.log( "Le 1er clic");
                 console.log( "Toutes les datas du 1er clic : ");
-                console.log(data); 
+                console.log(data);
                 console.log("Le pari soustrait a nbJeton : ");
                 console.log(pari);
                 console.log("Le nombre total de jeton");
