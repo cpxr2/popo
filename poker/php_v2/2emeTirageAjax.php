@@ -90,11 +90,9 @@ $montantGagner = gain($pari, $gain); // fonction qui calcule le gain
      *   MàJ DES JETONS DANS LA BDD            *
      ******************************************/
 
-<<<<<<< HEAD
 $miseAJour = $bdd->prepare('UPDATE joueur SET jeton_jou = :jeton WHERE id_jou=:id');
 $miseAJour->execute(array(':jeton'=>($totalJeton+$montantGagner), ':id'=>$_SESSION['id']));
 
-=======
 // Partie Temporaire
 if($_SESSION['partieTemp']){
     $id = $_SESSION['id_admin'];
@@ -121,7 +119,7 @@ if($_SESSION['partieTemp']){
 }
 $_SESSION['nbJeton'] = $newSolde;
 $_SESSION['reload'] = false;
->>>>>>> e0dc5378bcef06e5edcc7725d5e8e47f706d7507
+
 /******************************************
      *          CREATION DU JSON               *
      ******************************************/
