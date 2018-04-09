@@ -174,9 +174,9 @@ function gain($pari, $gain)
             return ($pari * 10);
             break;
     }
-    function verifChamp($message, $verif=false){
+    /*function verifChamp($message, $verif=false){
         if($verif){
             echo $message;
         }
-    }
+    }*/
 }

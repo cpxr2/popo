@@ -25,13 +25,13 @@ $("#donne1").click( function(){
                     carteTirer[i] = data[i];
                 }
                 // affichage pour debug
-                console.log( "Le 1er clic");
+                /*console.log( "Le 1er clic");
                 console.log( "Toutes les datas du 1er clic : ");
                 console.log(data); 
                 console.log("Le pari soustrait a nbJeton : ");
                 console.log(pari);
                 console.log("Le nombre total de jeton");
-                console.log(nbJeton);
+                console.log(nbJeton);*/
             },
             'json'
         );

@@ -10,6 +10,10 @@ html
 {
     background-color: gray;
 }
+#nom
+{
+    color: white;
+}
 #jeton
 {
     font-size: 16px;

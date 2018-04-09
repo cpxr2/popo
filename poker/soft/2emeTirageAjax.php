@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'connexion.php';
 require 'fonction_verif.php';
 
@@ -85,13 +86,14 @@ $gain = verifMain($resultat); // fonction qui verifie si la main est gagnante
 
 $montantGagner = gain($pari, $gain); // fonction qui calcule le gain
 
+$nouveauTotal = $totalJeton+$montantGagner;
 
 /******************************************
      *   MàJ DES JETONS DANS LA BDD            *
      ******************************************/
 
-$miseAJour = $bdd->prepare('UPDATE joueur SET jeton_jou = :jeton WHERE id_jou=1');
-$miseAJour->execute(array(':jeton'=>($totalJeton+$gain)));
+$miseAJour = $bdd->prepare('UPDATE users SET jeton_user = :jeton WHERE id_user=:id');
+$miseAJour->execute(array(':jeton'=>$nouveauTotal, ':id'=>$_SESSION['id']));
 
 /******************************************
      *          CREATION DU JSON               *

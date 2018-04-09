@@ -56,18 +56,3 @@ label
     color: red;
     font-size: 25px;
 }
-/**************************************************/
-/*                TABLEAU                         */
-/**************************************************/
-.ligne
-{
-  clear:both;  
-}
-.cell
-{
-    float: left;
-    height: 40px;
-    width : 100px;
-    border : black 1px solid;
-    padding: 5px;
-}

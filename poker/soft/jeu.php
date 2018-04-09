@@ -11,6 +11,7 @@ if(isset($_SESSION['nbJeton']))
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
         <title>Video Poker</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
@@ -20,16 +21,15 @@ if(isset($_SESSION['nbJeton']))
     <body>
         <div class="container" id="page">
             <div class="row" id="menu">
-                <div class="col-xs-6" >
-                    <button class="btn btn-info">Accueil</button>
-                    <button class="btn btn-info">Compte</button>
+                <div class="col-xs-6" >                    
+                    <a href="backJeton"><button class="btn btn-info">Ajouter des jetons</button></a>
                     <a href="backDeconnexion.php"><button class="btn btn-danger">Deconnection</button></a>
                 </div>
                 
-                <div class="col-xs-2" >
+                <div class="col-xs-2" id="nom" >
                 Bienvenue <?=$_SESSION['pseudo']?>.
                 </div>
-                <!--affichage du solde de jeton-->
+                <!--affichage du solde de jeton recuper-->
                 <div class="col-xs-offset-2 col-xs-2" id="jeton">
                     Jetons :  <span id="nbjeton"></span>
                 </div>
@@ -150,7 +150,7 @@ if(isset($_SESSION['nbJeton']))
                 </div> 
             </div>
         </div>
-
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/fonction_poker.js"></script>
         <script src="js/recupJetonAjax.js"></script>

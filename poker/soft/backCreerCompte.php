@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
         <title>Créer un joueur</title>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -17,6 +18,9 @@
 
 
             <!--*********************** HTML FORMULAIRE ***********************-->
+            <?php
+            if(!isset($_POST['creer'])){
+            ?>
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Créer un nouveau joueur</h1>
@@ -54,23 +58,36 @@
                 </div>
             </div>
             <?php
-    if(isset($_POST['creer'])){
-        require 'connexion.php';
-        
-        $email = $_POST['email'];
-        $pseudo = $_POST['pseudo'];
+            }
+            else if(isset($_POST['creer'])){
+                require 'connexion.php';
 
-        $requete = $bdd->prepare('INSERT INTO joueur2(nom_jou, mdp_jou, acces_jou, id_admin, jeton_jou, email_jou) VALUES (:nom, 1, 1, 0, :email)');
-        $requete->execute(array(':email'=>$email, ':nom'=>$pseudo));
-        echo 'Nouveau joueur créer.';
+                $email = $_POST['email'];
+                $pseudo = $_POST['pseudo'];
+                $mdp = hash('sha256', $_POST['mdp'], false);
 
-    }  
+
+                $requete = $bdd->prepare('INSERT INTO users(pseudo_user, email_user, mdp_user, jeton_user, acces_user) VALUES (:pseudo, :email, :mdp, 1000, 1)');
+                $requete->execute(array(':email'=>$email, ':pseudo'=>$pseudo, ':mdp'=>$mdp));
+                $requete->closeCursor();
+            ?>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <span class="reponse">Votre compte a bien été créer.</span>
+                    <br /><br />
+                    <a href="index.php"><button class="btn btn-primary">Retour</button></a>
+                </div>
+            </div>
+
+            <?php
+            }            
             ?>
         </div>
         <script>
             $("#creer").click(function(e){                   
 
-                var emailReg = /^¨([a-z0-9._-]+@[a-z0-9._-]+\\.[a-z]{2,4})?/;
+                var emailReg = /^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/;
                 var emailaddressVal = $("#email").val();
 
                 if(!emailReg.test(emailaddressVal)) {
